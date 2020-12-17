@@ -17,12 +17,14 @@ __author__ = "Zenaro Stefano"
 __version__ = "2020-12-15 01_01"
 
 import os
+import sys
 import re
 import subprocess
 import time
 import configparser
 
 boold = False
+success = True  # used to make the CI fail when success == False
 
 
 def simulate(test_directory, blif_file, sis_simulation_input, sis_simulation_output):
@@ -182,6 +184,21 @@ def printlog(t_text, t_file):
 
 
 def parse_config(t_file):
+    """
+    Parses blif_tester_conf.ini files.
+
+    ini file content should be:
+    
+    ```
+    [CHECK]
+    output = true/false
+    nextstate = true/false
+    currentstate = true/false
+    ```
+    
+    :param str t_file: file to parse
+    :return dict parsed: dictionary with correct file status, errors and or what to check during the tests
+    """
     config = configparser.ConfigParser()
 
     parsed = {"correct": True, "errors": []}
@@ -301,9 +318,13 @@ if __name__ == "__main__":
                                                     printlog(f"[SIMULAZIONE - SUCCESSO] La simulazione ha dato il risultato atteso", flog)
                                                 else:
                                                     printlog(f"[SIMULAZIONE - FALLIMENTO] La simulazione NON ha dato il risultato atteso", flog)
+                                                    success = False
+                                            else:
+                                                success = False
 
                                         else:
                                             printlog("[ERRORE - SIMULAZIONE] Simulazione fallita", flog)
+                                            success = False
                                         
                                         teardown_script = os.path.join(blif_directory, "tests", "teardown.sh")
                                         if os.path.isfile(teardown_script):
@@ -311,8 +332,10 @@ if __name__ == "__main__":
                                             subprocess.Popen("." + teardown_script, stdout=subprocess.PIPE, shell=True).communicate()
                                     else:
                                         printlog("[ERRORE] file di simulazione ('{}') e/o file di output ('{}') atteso non esistente/i".format(simulation_input, correct_path), flog)
+                                        success = False
                                 else:
                                     printlog("[ERRORE] La cartella tests non esiste in '{}'".format(blif_directory), flog)
+                                    success = False
                         else:
                             if boold:
                                 printlog("[DEBUG - BLIFDIR] Elemento '{}' non e' un file".format(os.path.join(current_dir, l)), flog)
@@ -323,5 +346,9 @@ if __name__ == "__main__":
         
         except Exception as e:
             printlog("[ERRORE] Errore non previsto '{}' (dettagli: '{}')".format(type(e).__name__, str(e)), flog)
+            success = False
         
         printlog("[END] Fine dei test", flog)
+    
+    if not success:
+        sys.exit(1)
