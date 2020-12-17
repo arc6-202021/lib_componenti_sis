@@ -1,0 +1,47 @@
+# 0000
+Network state: 0000
+
+# 0001
+Network state: 0001
+
+# 0010
+Network state: 0010
+
+# 0011
+Network state: 0011
+
+# 0100
+Network state: 0100
+
+# 0101
+Network state: 0101
+
+# 0110
+Network state: 0110
+
+# 0111
+Network state: 0111
+
+# 1000
+Network state: 1000
+
+# 1001
+Network state: 1001
+
+# 1010
+Network state: 1010
+
+# 1011
+Network state: 1011
+
+# 1100
+Network state: 1100
+
+# 1101
+Network state: 1101
+
+# 1110
+Network state: 1110
+
+# 1111
+Network state: 1111

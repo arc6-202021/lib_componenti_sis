@@ -1,0 +1,14 @@
+# REGISTRO 1 BIT
+#
+# dato in ingresso A, lo memorizza. L'output del registro e' O
+#
+# > A --> O
+#
+
+.model registro1
+.inputs A
+.outputs O
+
+# input, output, rising edge, no clock, reset status: 0
+.latch A O re NIL 0
+.end

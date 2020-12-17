@@ -1,0 +1,160 @@
+# 00 + 00 + 0 = 00, riporto 0 
+Network simulation:
+Outputs: 0 0 0 
+Next state:
+
+# 00 + 00 + 1 = 01, riporto 0 
+Network simulation:
+Outputs: 0 1 0 
+Next state:
+
+# 00 + 01 + 0 = 01, riporto 0 
+Network simulation:
+Outputs: 0 1 0 
+Next state:
+
+# 00 + 01 + 1 = 10, riporto 0 
+Network simulation:
+Outputs: 1 0 0 
+Next state:
+
+# 00 + 10 + 0 = 10, riporto 0 
+Network simulation:
+Outputs: 1 0 0 
+Next state:
+
+# 00 + 10 + 1 = 11, riporto 0 
+Network simulation:
+Outputs: 1 1 0 
+Next state:
+
+# 00 + 11 + 0 = 11, riporto 0 
+Network simulation:
+Outputs: 1 1 0 
+Next state:
+
+# 00 + 11 + 1 = 00, riporto 1 
+Network simulation:
+Outputs: 0 0 1 
+Next state:
+
+# 01 + 00 + 0 = 01, riporto 0 
+Network simulation:
+Outputs: 0 1 0 
+Next state:
+
+# 01 + 00 + 1 = 10, riporto 0 
+Network simulation:
+Outputs: 1 0 0 
+Next state:
+
+# 01 + 01 + 0 = 10, riporto 0 
+Network simulation:
+Outputs: 1 0 0 
+Next state:
+
+# 01 + 01 + 1 = 11, riporto 0 
+Network simulation:
+Outputs: 1 1 0 
+Next state:
+
+# 01 + 10 + 0 = 11, riporto 0 
+Network simulation:
+Outputs: 1 1 0 
+Next state:
+
+# 01 + 10 + 1 = 00, riporto 1 
+Network simulation:
+Outputs: 0 0 1 
+Next state:
+
+# 01 + 11 + 0 = 00, riporto 1 
+Network simulation:
+Outputs: 0 0 1 
+Next state:
+
+# 01 + 11 + 1 = 01, riporto 1 
+Network simulation:
+Outputs: 0 1 1 
+Next state:
+
+# 10 + 00 + 0 = 10, riporto 0 
+Network simulation:
+Outputs: 1 0 0 
+Next state:
+
+# 10 + 00 + 1 = 11, riporto 0 
+Network simulation:
+Outputs: 1 1 0 
+Next state:
+
+# 10 + 01 + 0 = 11, riporto 0 
+Network simulation:
+Outputs: 1 1 0 
+Next state:
+
+# 10 + 01 + 1 = 00, riporto 1 
+Network simulation:
+Outputs: 0 0 1 
+Next state:
+
+# 10 + 10 + 0 = 00, riporto 1 
+Network simulation:
+Outputs: 0 0 1 
+Next state:
+
+# 10 + 10 + 1 = 01, riporto 1 
+Network simulation:
+Outputs: 0 1 1 
+Next state:
+
+# 10 + 11 + 0 = 01, riporto 1 
+Network simulation:
+Outputs: 0 1 1 
+Next state:
+
+# 10 + 11 + 1 = 10, riporto 1 
+Network simulation:
+Outputs: 1 0 1 
+Next state:
+
+# 11 + 00 + 0 = 11, riporto 0 
+Network simulation:
+Outputs: 1 1 0 
+Next state:
+
+# 11 + 00 + 1 = 00, riporto 1 
+Network simulation:
+Outputs: 0 0 1 
+Next state:
+
+# 11 + 01 + 0 = 00, riporto 1 
+Network simulation:
+Outputs: 0 0 1 
+Next state:
+
+# 11 + 01 + 1 = 01, riporto 1 
+Network simulation:
+Outputs: 0 1 1 
+Next state:
+
+# 11 + 10 + 0 = 01, riporto 1 
+Network simulation:
+Outputs: 0 1 1 
+Next state:
+
+# 11 + 10 + 1 = 10, riporto 1 
+Network simulation:
+Outputs: 1 0 1 
+Next state:
+
+# 11 + 11 + 0 = 10, riporto 1 
+Network simulation:
+Outputs: 1 0 1 
+Next state:
+
+# 11 + 11 + 1 = 11, riporto 1 
+Network simulation:
+Outputs: 1 1 1 
+Next state:
+

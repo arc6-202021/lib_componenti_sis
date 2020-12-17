@@ -1,0 +1,18 @@
+# PORTA LOGICA NAND (complementare AND)
+#
+# dati in ingresso A=0 e B=0, restituisce O=0, altrimenti O=1
+#
+
+.model nand
+.inputs A B
+.outputs O
+
+# A, B --( AND )--> AND_OUT
+.search and.blif               # Importa la porta and
+.subckt and A=A B=B O=AND_OUT  # Collega gli ingressi della nand agli ingressi della and
+
+# AND_OUT --( NOT )--> O
+.search not.blif           # Importa la porta not
+.subckt not A=AND_OUT O=O  # collega l'uscita della porta and con l'ingresso della not
+
+.end

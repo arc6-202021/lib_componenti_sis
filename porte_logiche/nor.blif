@@ -1,0 +1,18 @@
+# PORTA LOGICA NOR (complementare OR)
+#
+# dati in ingresso A=1 oppure B=1 o entrambe A=B=1, restituisce O=1, altrimenti O=0 (A=B=0)
+#
+
+.model nor
+.inputs A B
+.outputs O
+
+# A, B --( OR )--> OR_OUT
+.search or.blif              # Importa la porta or
+.subckt or A=A B=B O=OR_OUT  # Collega ingressi nor agli ingressi della or
+
+# OR_OUT --( NOT )--> O
+.search not.blif          # Importa la porta not
+.subckt not A=OR_OUT O=O  # Collega uscita or all'ingresso not
+
+.end

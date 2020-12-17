@@ -1,0 +1,4 @@
+simulate 0 0
+simulate 0 1
+simulate 1 0
+simulate 1 1

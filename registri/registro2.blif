@@ -1,0 +1,19 @@
+# REGISTRO 2 BIT (2 x 1 BIT)
+#
+# dato in ingresso A0, A1 li memorizza. L'output del registro e' O0, O1
+#
+# > Ax --> Ox
+#
+
+.model registro2
+.inputs A1 A0
+.outputs O1 O0
+
+# Importa registro 1 bit
+.search registro1.blif
+
+# Usa due registri da 1 bit in parallelo per ottenere registro a 2 bit
+.subckt registro1 A=A1 O=O1
+.subckt registro1 A=A0 O=O0
+
+.end

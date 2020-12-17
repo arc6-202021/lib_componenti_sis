@@ -1,0 +1,19 @@
+# 00 1
+Network simulation:
+Outputs: 1
+Next state:
+
+# 01 1
+Network simulation:
+Outputs: 1
+Next state:
+
+# 10 1
+Network simulation:
+Outputs: 1
+Next state:
+
+# 11 0
+Network simulation:
+Outputs: 0
+Next state:

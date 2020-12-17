@@ -1,0 +1,13 @@
+# PORTA LOGICA AND
+#
+# dati in ingresso A=1 e B=1, restituisce O=1, altrimenti O=0
+#
+
+.model and
+.inputs A B
+.outputs O
+
+.names A B O
+11 1
+
+.end

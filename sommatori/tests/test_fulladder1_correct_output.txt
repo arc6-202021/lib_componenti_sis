@@ -1,0 +1,40 @@
+# 0 + 0 + 0 = 0, riporto 0 
+Network simulation:
+Outputs: 0 0 
+Next state:
+
+# 0 + 0 + 1 = 1, riporto 0 
+Network simulation:
+Outputs: 1 0 
+Next state:
+
+# 0 + 1 + 0 = 1, riporto 0 
+Network simulation:
+Outputs: 1 0 
+Next state:
+
+# 0 + 1 + 1 = 0, riporto 1 
+Network simulation:
+Outputs: 0 1 
+Next state:
+
+# 1 + 0 + 0 = 1, riporto 0 
+Network simulation:
+Outputs: 1 0 
+Next state:
+
+# 1 + 0 + 1 = 0, riporto 1 
+Network simulation:
+Outputs: 0 1 
+Next state:
+
+# 1 + 1 + 0 = 0, riporto 1 
+Network simulation:
+Outputs: 0 1 
+Next state:
+
+# 1 + 1 + 1 = 1, riporto 1 
+Network simulation:
+Outputs: 1 1 
+Next state:
+

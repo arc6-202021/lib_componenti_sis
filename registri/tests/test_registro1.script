@@ -1,0 +1,5 @@
+simulate 0
+print_state
+
+simulate 1
+print_state

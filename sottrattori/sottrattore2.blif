@@ -1,0 +1,41 @@
+# SOTTRATTORE 2 BIT
+#
+# Esegue la sottrazione in complemento a 2 tra bit Ax e Bx.
+# Sx e' il risultato
+#
+# > IGNORE e' sempre 1 e non e' utile nel risultato della sottrazione, 
+# > serve per evitare warning di fanout (perche' i riporti dei sommatori sono inutilizzati)
+#
+
+.model sottrattore2
+.inputs A1 A0 B1 B0
+.outputs S1 S0 IGNORE
+
+# Importa not e fulladder a 2 bit
+.search not.blif
+.search fulladder2.blif
+
+# COSTANTE 0 E 1
+.names NUM_0
+.names NUM_1
+1
+
+# NEGAZIONE DI B
+.subckt not A=B0 O=INV0
+.subckt not A=B1 O=INV1
+
+# SOMMA 1 A B
+.subckt fulladder2 A1=INV1 A0=INV0 B1=NUM_0 B0=NUM_1 CIN=NUM_0 O1=COMP1_1 O0=COMP1_0 COUT=IGNORE1
+
+# SOMMA A E COMPLEMENTO 1 DI B
+.subckt fulladder2 A1=A1 A0=A0 B1=COMP1_1 B0=COMP1_0 CIN=NUM_0 O1=S1 O0=S0 COUT=IGNORE2
+
+# "usa" i cout per evitare il warning di fanout 
+# (quando le uscite COUT dei sommatori non collegate a niente appare questo warning)
+.names IGNORE1 IGNORE2 IGNORE
+00 1
+01 1
+10 1
+11 1
+
+.end

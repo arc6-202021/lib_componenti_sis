@@ -1,0 +1,21 @@
+# REGISTRO 4 BIT (4 x 1 BIT)
+#
+# dato in ingresso A0, A1, A2, A3, li memorizza. L'output del registro e' O0, O1, O2, O3.
+#
+# > Ax --> Ox
+#
+
+.model registro4
+.inputs A3 A2 A1 A0
+.outputs O3 O2 O1 O0
+
+# Importa registro 1 bit
+.search registro1.blif
+
+# Usa quattro registri da 1 bit in parallelo per ottenere registro a 4 bit
+.subckt registro1 A=A3 O=O3
+.subckt registro1 A=A2 O=O2
+.subckt registro1 A=A1 O=O1
+.subckt registro1 A=A0 O=O0
+
+.end

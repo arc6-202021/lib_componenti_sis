@@ -1,0 +1,11 @@
+# 00
+Network state: 00
+
+# 01
+Network state: 01
+
+# 10
+Network state: 10
+
+# 11
+Network state: 11
