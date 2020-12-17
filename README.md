@@ -1,5 +1,9 @@
 # LIBRERIA COMPONENTI SIS
 
+![BLIF tester](https://github.com/arc6-202021/lib_componenti_sis/workflows/BLIF%20tester/badge.svg)
+
+> Nota: attualmente fallisce perche' mancano file di test dei sottrattori 
+
 Questo repository contiene file blif
 con componenti pronti per essere simulati su SIS.
 
@@ -10,15 +14,13 @@ Il repository contiene anche script e file di test.
 Nel repository ci sono...
 
 ... le cartelle:
-* .github adesso contiene solo un file per controllare le dipendenze, 
-> che per ora non ne abbiamo.
-
-> Possiamo usarla per automatizzare i test con github actions quando facciamo push di commit
-
-* porte_logiche con le 7 porte logiche + script di test e output corretti
-* registri contiene registri + script di test e output corretti
-* sommatori contiene fulladder + script di test e output corretti
-* sottrattori mancano gli script di test e i file di output corretti
+* **.github** contiene file yml per controllare le dipendenze di github actions
+e una workflow per eseguire lo script Python blif_tester.py
+    > Il workflow scarica il repository, installa SIS e Python e infine esegue lo script python di test
+* **porte_logiche** con le 7 porte logiche + script di test e output corretti
+* **registri** contiene registri + script di test e output corretti
+* **sommatori** contiene fulladder + script di test e output corretti
+* **sottrattori** mancano gli script di test e i file di output corretti
 
 ... gli script python:
 * **blif_tester.py**: entra nelle cartelle e cerca i file blif e una cartella "tests".
