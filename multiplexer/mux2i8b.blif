@@ -1,9 +1,7 @@
 # MULTIPLEXER 2 INGRESSI DA 8 BIT CIASCUNO
 
 .model mux2i8b 
-.inputs S \
-A7 A6 A5 A4 A3 A2 A1 A0 \
-B7 B6 B5 B4 B3 B2 B1 B0
+.inputs S A7 A6 A5 A4 A3 A2 A1 A0 B7 B6 B5 B4 B3 B2 B1 B0
 .outputs O7 O6 O5 O4 O3 O2 O1 O0
 
 # Usa 8 multiplexer con 2 ingressi di 1 bit ciascuno

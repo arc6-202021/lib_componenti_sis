@@ -1,15 +1,7 @@
 # MULTIPLEXER 8 INGRESSI DA 4 BIT CIASCUNO
 
 .model mux8i4b
-.inputs S2 S1 S0 \
-A3 A2 A1 A0 \
-B3 B2 B1 B0 \
-C3 C2 C1 C0 \
-D3 D2 D1 D0 \
-E3 E2 E1 E0 \
-F3 F2 F1 F0 \
-G3 G2 G1 G0 \
-H3 H2 H1 H0 
+.inputs S2 S1 S0 A3 A2 A1 A0 B3 B2 B1 B0 C3 C2 C1 C0 D3 D2 D1 D0 E3 E2 E1 E0 F3 F2 F1 F0 G3 G2 G1 G0 H3 H2 H1 H0 
 .outputs O3 O2 O1 O0
 
 # Usa 4 multiplexer con 8 ingressi di 1 bit ciascuno

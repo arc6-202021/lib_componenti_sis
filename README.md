@@ -2,8 +2,6 @@
 
 ![BLIF tester](https://github.com/arc6-202021/lib_componenti_sis/workflows/BLIF%20tester/badge.svg)
 
-> Nota: attualmente fallisce perche' mancano file di test dei sottrattori 
-
 Questo repository contiene file blif
 con componenti pronti per essere simulati su SIS.
 
