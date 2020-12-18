@@ -28,8 +28,9 @@ def n_bits(n, start=0, endbefore=None):
     :param int n: numero di bit
     """
     range_combs = range(start, 2**n)
-    if not endbefore and endbefore < 2**n:
-        range_combs = range(start, endbefore)
+    if endbefore:
+        if endbefore < 2**n:
+            range_combs = range(start, endbefore)
 
     for i in range_combs:
         binary = str(bin(i))
