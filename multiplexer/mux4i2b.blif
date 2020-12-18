@@ -1,0 +1,12 @@
+# MULTIPLEXER 4 INGRESSI DA 2 BIT CIASCUNO
+
+.model mux4i2b 
+.inputs S1 S0 A1 A0 B1 B0 C1 C0 D1 D0 
+.outputs O1 O0
+
+# Usa due multiplexer con 4 ingressi di 1 bit ciascuno
+.search mux4i1b.blif
+.subckt mux4i1b S1=S1 S0=S0 I3=A1 I2=B1 I1=C1 I0=D1 O=O1 
+.subckt mux4i1b S1=S1 S0=S0 I3=A0 I2=B0 I1=C0 I0=D0 O=O0  
+
+.end 

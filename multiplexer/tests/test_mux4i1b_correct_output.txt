@@ -1,0 +1,320 @@
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+
+
+Network simulation:
+Outputs: 0 
+Next state:
+
+
+Network simulation:
+Outputs: 1 
+Next state:
+

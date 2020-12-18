@@ -1,0 +1,17 @@
+# MULTIPLEXER 8 INGRESSI DA 1 BIT CIASCUNO
+
+.model mux8i1b
+.inputs S2 S1 S0 I7 I6 I5 I4 I3 I2 I1 I0
+.outputs O
+
+.names S2 S1 S0 I7 I6 I5 I4 I3 I2 I1 I0 O
+0001------- 1  # O = I7
+001-1------ 1  # O = I6
+010--1----- 1  # O = I5
+011---1---- 1  # O = I4
+100----1--- 1  # O = I3
+101-----1-- 1  # O = I2
+110------1- 1  # O = I1
+111-------1 1  # O = I0
+
+.end

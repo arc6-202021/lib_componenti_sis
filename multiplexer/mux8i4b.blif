@@ -1,0 +1,22 @@
+# MULTIPLEXER 8 INGRESSI DA 4 BIT CIASCUNO
+
+.model mux8i4b
+.inputs S2 S1 S0 \
+A3 A2 A1 A0 \
+B3 B2 B1 B0 \
+C3 C2 C1 C0 \
+D3 D2 D1 D0 \
+E3 E2 E1 E0 \
+F3 F2 F1 F0 \
+G3 G2 G1 G0 \
+H3 H2 H1 H0 
+.outputs O3 O2 O1 O0
+
+# Usa 4 multiplexer con 8 ingressi di 1 bit ciascuno
+.search mux8i1b.blif
+.subckt mux8i1b S2=S2 S1=S1 S0=S0 I7=A3 I6=B3 I5=C3 I4=D3 I3=E3 I2=F3 I1=G3 I0=H3 O=O3 
+.subckt mux8i1b S2=S2 S1=S1 S0=S0 I7=A2 I6=B2 I5=C2 I4=D2 I3=E2 I2=F2 I1=G2 I0=H2 O=O2  
+.subckt mux8i1b S2=S2 S1=S1 S0=S0 I7=A1 I6=B1 I5=C1 I4=D1 I3=E1 I2=F1 I1=G1 I0=H1 O=O1 
+.subckt mux8i1b S2=S2 S1=S1 S0=S0 I7=A0 I6=B0 I5=C0 I4=D0 I3=E0 I2=F0 I1=G0 I0=H0 O=O0
+  
+.end 
