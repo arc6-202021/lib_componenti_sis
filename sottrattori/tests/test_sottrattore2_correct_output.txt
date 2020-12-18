@@ -1,0 +1,80 @@
+# 00 - 00 = 00
+Network simulation:
+Outputs: 0 0 1
+Next state:
+
+# 00 - 01 = 11
+Network simulation:
+Outputs: 1 1 1
+Next state:
+
+# 00 - 10 = 10
+Network simulation:
+Outputs: 1 0 1
+Next state:
+
+# 00 - 11 = 01
+Network simulation:
+Outputs: 0 1 1
+Next state:
+
+# 01 - 00 = 01
+Network simulation:
+Outputs: 0 1 1
+Next state:
+
+# 01 - 01 = 00
+Network simulation:
+Outputs: 0 0 1
+Next state:
+
+# 01 - 10 = 11
+Network simulation:
+Outputs: 1 1 1
+Next state:
+
+# 01 - 11 = 10
+Network simulation:
+Outputs: 1 0 1
+Next state:
+
+# 10 - 00 = 10
+Network simulation:
+Outputs: 1 0 1
+Next state:
+
+# 10 - 01 = 01
+Network simulation:
+Outputs: 0 1 1
+Next state:
+
+# 10 - 10 = 00
+Network simulation:
+Outputs: 0 0 1
+Next state:
+
+# 10 - 11 = 11
+Network simulation:
+Outputs: 1 1 1
+Next state:
+
+# 11 - 00 = 11
+Network simulation:
+Outputs: 1 1 1
+Next state:
+
+# 11 - 01 = 10
+Network simulation:
+Outputs: 1 0 1
+Next state:
+
+# 11 - 10 = 01
+Network simulation:
+Outputs: 0 1 1
+Next state:
+
+# 11 - 11 = 00
+Network simulation:
+Outputs: 0 0 1
+Next state:
+
