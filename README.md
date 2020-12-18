@@ -27,6 +27,10 @@ e una workflow per eseguire lo script Python blif_tester.py
 Quando trova file blif cerca nella cartella tests
 il file di test dei singoli file blif (chiamati ```test_<nomefileblif>.script```)
 e l'output atteso dalla simulazione (chiamati ```test_<nomefileblif>_correct_output.txt```)
+> Nelle cartelle sono presenti anche i file ```blif_tester_conf.ini``` 
+> (usati per definire cosa occorre testare per ogni sottogruppo di componenti) 
+> e i file ```setup.sh``` e ```teardown.sh```, script bash che vengono eseguiti
+> rispettivamente prima e dopo ogni test di un file blif
 
 * **test_generator.py**: contiene funzioni che possono automatizzare la creazione dei
 file ```*correct_output.txt```

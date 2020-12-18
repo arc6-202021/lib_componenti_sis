@@ -297,7 +297,7 @@ if __name__ == "__main__":
                                         setup_script = os.path.join(blif_directory, "tests", "setup.sh")
                                         if os.path.isfile(setup_script):
                                             printlog("[SETUP] File di setup trovato, eseguo script per preparare i test", flog)
-                                            subprocess.Popen("." + setup_script, stdout=subprocess.PIPE, shell=True).communicate()
+                                            subprocess.Popen(setup_script, stdout=subprocess.PIPE, shell=True).communicate()
 
                                         # se la esecuzione della simulazione ha successo... 
                                         if simulate(blif_directory, blif_file, simulation_input, sim_out_path) == 0:
@@ -329,7 +329,7 @@ if __name__ == "__main__":
                                         teardown_script = os.path.join(blif_directory, "tests", "teardown.sh")
                                         if os.path.isfile(teardown_script):
                                             printlog("[TEARDOWN] File di teardown trovato, eseguo script per chiusura del test", flog)
-                                            subprocess.Popen("." + teardown_script, stdout=subprocess.PIPE, shell=True).communicate()
+                                            subprocess.Popen(teardown_script, stdout=subprocess.PIPE, shell=True).communicate()
                                     else:
                                         printlog("[ERRORE] file di simulazione ('{}') e/o file di output ('{}') atteso non esistente/i".format(simulation_input, correct_path), flog)
                                         success = False
