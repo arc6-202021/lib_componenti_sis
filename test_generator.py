@@ -7,12 +7,13 @@ __author__ = "Zenaro Stefano"
 __version__ = "2020-12-15 01_01"
 
 import math
+import argparse
 
 bit = 17
 boold = False
 
 
-def n_bits(n):
+def n_bits(n, start=0, endbefore=None):
     """
     Generatore di combinazioni di n bit.
 
@@ -26,7 +27,11 @@ def n_bits(n):
 
     :param int n: numero di bit
     """
-    for i in range(2**n):
+    range_combs = range(start, 2**n)
+    if not endbefore and endbefore < 2**n:
+        range_combs = range(start, endbefore)
+
+    for i in range_combs:
         binary = str(bin(i))
         str_bin = binnotation2bits(binary, n)
             
@@ -79,7 +84,7 @@ def v_to_str(v):
     return string
 
 
-def gen_simulations(n, print_state=True):
+def gen_simulations(n, print_state=True, start=0, endbefore=None):
     """
     Generatore di comandi simulate e print_state per tutte le combinazioni di n bit.
 
@@ -99,9 +104,9 @@ def gen_simulations(n, print_state=True):
     simulate 1 1
     print_state
     """
-    for i in n_bits(n):
-        cmd_simulate = "simulate " + v_to_str(add_spaces_between(i))
-        cmd_print_state = "\nprint_state\n\n"
+    for i in n_bits(n, start, endbefore):
+        cmd_simulate = "simulate " + v_to_str(add_spaces_between(i)) + "\n"
+        cmd_print_state = "print_state\n\n"
 
         command_combination = cmd_simulate
         
@@ -111,7 +116,7 @@ def gen_simulations(n, print_state=True):
         yield command_combination
 
 
-def gen_registry_networkstate(n):
+def gen_registry_networkstate(n, start=0, endbefore=None):
     """
     Generatore di stati attuali esatti per i registri.
 
@@ -133,7 +138,7 @@ def gen_registry_networkstate(n):
 
     :param int n: numero di bit
     """
-    for i in n_bits(n):
+    for i in n_bits(n, start, endbefore):
         comment = "# " + i
         network_state = "\nNetwork state: " + i
 
@@ -141,12 +146,12 @@ def gen_registry_networkstate(n):
         yield command_combination
 
 
-def gen_adder_output(nbit):
+def gen_adder_output(nbit, start=0, endbefore=None):
     """
     Generatore di output esatto per i sommatori fulladder.
     :param int nbit: numero di bit totali in ingresso
     """
-    for combination in n_bits(nbit):
+    for combination in n_bits(nbit, start, endbefore):
         # 110 -> cin = 0, a = 1 b = 1
         cin = combination[-1]
         input_len = int((len(combination)-1)/2)
@@ -201,7 +206,7 @@ def twos_complement(val, nbits):
     return val
 
 
-def gen_sub_output(nbit):
+def gen_sub_output(nbit, start=0, endbefore=None):
     """
     Generatore di output esatti per i sottrattori.
     > In outputs viene aggiunto un uno alla fine,
@@ -210,7 +215,7 @@ def gen_sub_output(nbit):
 
     :param int nbit: numero di bit di tutti gli ingressi
     """
-    for combination in n_bits(nbit):
+    for combination in n_bits(nbit, start, endbefore):
         # 1110 -> a = 11 b = 10
         input_len = int((len(combination))/2)
         a = combination[0:input_len]
@@ -302,7 +307,7 @@ def invert(bit_string):
     return res
 
 
-def gen_mux_output(ninputs, nbit):
+def gen_mux_output(ninputs, nbit, start=0, endbefore=None):
     """
     Generatore di output esatti per i multiplexer.
     
@@ -315,12 +320,9 @@ def gen_mux_output(ninputs, nbit):
     :param int ninputs: numero di input nel multiplexer
     :param int nbit: numero di bit di tutti gli ingressi
     """
-    for combination in n_bits(nbit):
+    for combination in n_bits(nbit, start, endbefore):
         # 2 ingressi (e 3 bit) --> 1 bit di selettore
         selector = combination[0:int(math.log2(ninputs))]
-        
-        if int(combination, 2) > 2**20:
-            raise StopIteration()
 
         # 2 ingressi e 3 bit --> 1 di selettore, 2 di dato.
         # 2 bit di dato / 2 ingressi = 1 bit di dato per ingresso
@@ -355,27 +357,57 @@ def gen_mux_output(ninputs, nbit):
 
 if __name__ == "__main__":
 
-    #print("Prova per {} bit:".format(bit))
-    #for i in n_bits(bit):
-    #    print(i)
+    parser = argparse.ArgumentParser(description='Automatizza la creazione dei test.')
+    parser.add_argument('nbits', metavar='NBITS', type=int, help='numero di bit')
+    parser.add_argument('--simulate', action='store_true', default=False, help='indica di creare script di test con comandi simulate')
+    parser.add_argument('--noprintstate', action='store_true', default=False, help='NON usare i comandi print_state dopo i comandi simulate (--simulate e\' necessario per usare questo flag)')
+    parser.add_argument('--registry', action='store_true', default=False, help='indica di creare output corretti di stati attuali per testare i registri')
+    parser.add_argument('--fulladder', action='store_true', default=False, help='indica di creare output corretti per testare i sommatori fulladder')
+    parser.add_argument('--subtractor', action='store_true', default=False, help='indica di creare output corretti per testare i sottrattori (nota: l\'ultimo bit e\' sempre 1 e non fa parte del risultato)')
+    parser.add_argument('--mux', action='store_true', default=False, help='indica di creare output corretti per testare i multiplexer')
+    parser.add_argument('--ninputs', type=int, help='numero di input nel multiplexer')
+    parser.add_argument('--startnum', type=int, default=0, help='numero da cui iniziare le combinazioni')
+    parser.add_argument('--endnum', type=int, default=None, help='numero in cui forzare la fine delle combinazioni')
+    args = parser.parse_args()
     
-    #print("simulate per {} bit:".format(bit))
-    #for combination in gen_simulations(bit, False):
-    #    print(combination)
-    
-    #print("stato corretto per registri a {} bit:".format(bit))
-    #for combination in gen_networkstate(bit):
-    #    print(combination)
-    
-    #print("output corretto per gli adder con bit a + bit b + cin = {} bit".format(bit))
-    #with open("s", "w") as f:
-    #    for combination in gen_adder_output(bit):
-    #        f.write(combination + "\n")
-    
-    #
-    #with open("s", "w") as f:
-    #    for combination in gen_simulations(bit, False):
-    #        f.write(combination + "\n")
-    with open("test_mux4i8b_correct_output.txt", "w") as f:
-        for combination in gen_sub_output(16):
-            f.write(combination + "\n")
+    if not (args.simulate or args.registry or args.fulladder or args.subtractor or args.mux):
+        print("ATTENZIONE: Una flag deve essere vera\n")
+        parser.print_help()
+    elif (args.simulate + args.registry + args.fulladder + args.subtractor + args.mux) > 1:
+        print("ATTENZIONE: Solo UNA flag deve essere vera\n")
+        parser.print_help()
+    else:
+        if args.mux and (not args.ninputs):
+            print("ATTENZIONE: la flag --mux richiede la flag --ninputs\n")
+            parser.print_help()
+
+        elif args.startnum < 0:
+            print("ATTENZIONE: il parametro --startnum deve essere un numero positivo\n")
+            parser.print_help()
+        
+        elif args.endnum is not None and args.endnum < 0:
+            print("ATTENZIONE: il parametro --endnum deve essere un numero positivo\n")
+            parser.print_help()
+
+        elif args.mux and args.ninputs:
+            # ottieni gli output dei multiplexer
+            for combination in gen_mux_output(args.ninputs, args.nbits, start=args.startnum, endbefore=args.endnum):
+                print(combination, end="")
+
+        elif args.simulate:
+            print_state = not args.noprintstate
+            for combination in gen_simulations(args.nbits, print_state=print_state,start=args.startnum, endbefore=args.endnum):
+                print(combination, end="")
+
+        elif args.registry:
+            for combination in gen_registry_networkstate(args.nbits, start=args.startnum, endbefore=args.endnum):
+                print(combination, end="")
+
+        elif args.fulladder:
+            for combination in gen_adder_output(args.nbits, start=args.startnum, endbefore=args.endnum):
+                print(combination, end="")
+
+        elif args.subtractor:
+            for combination in gen_sub_output(args.nbits, start=args.startnum, endbefore=args.endnum):
+                print(combination, end="")
+

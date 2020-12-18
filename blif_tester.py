@@ -271,6 +271,11 @@ if __name__ == "__main__":
                     folder = element
                     blif_directory = os.path.join(current_dir, folder)
 
+                    setupcategory_script = os.path.join(blif_directory, "setupcategory.sh")
+                    if os.path.isfile(setupcategory_script):
+                        printlog("[SETUP CATEGORY] File di setup di questa categoria di componenti trovato, eseguo script per preparare i test", flog)
+                        subprocess.Popen("sudo " + setupcategory_script + " " + blif_directory, stdout=subprocess.PIPE, shell=True).communicate()
+
                     # scorri gli elementi della cartella dei blif
                     for l in os.listdir(blif_directory):
                         if os.path.isfile(os.path.join(blif_directory, l)):
@@ -297,7 +302,7 @@ if __name__ == "__main__":
                                         setup_script = os.path.join(blif_directory, "tests", "setup.sh")
                                         if os.path.isfile(setup_script):
                                             printlog("[SETUP] File di setup trovato, eseguo script per preparare i test", flog)
-                                            subprocess.Popen("sudo " + setup_script, stdout=subprocess.PIPE, shell=True).communicate()
+                                            subprocess.Popen("sudo " + setup_script + " " + blif_file, stdout=subprocess.PIPE, shell=True).communicate()
 
                                         # se la esecuzione della simulazione ha successo... 
                                         if simulate(blif_directory, blif_file, simulation_input, sim_out_path) == 0:
@@ -329,7 +334,7 @@ if __name__ == "__main__":
                                         teardown_script = os.path.join(blif_directory, "tests", "teardown.sh")
                                         if os.path.isfile(teardown_script):
                                             printlog("[TEARDOWN] File di teardown trovato, eseguo script per chiusura del test", flog)
-                                            subprocess.Popen("sudo " + teardown_script, stdout=subprocess.PIPE, shell=True).communicate()
+                                            subprocess.Popen("sudo " + teardown_script + " " + blif_file, stdout=subprocess.PIPE, shell=True).communicate()
                                     else:
                                         printlog("[ERRORE] file di simulazione ('{}') e/o file di output ('{}') atteso non esistente/i".format(simulation_input, correct_path), flog)
                                         success = False
