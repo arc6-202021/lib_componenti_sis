@@ -1,0 +1,15 @@
+.model comparatore4 
+.inputs A3 A2 A1 A0 B3 B2 B1 B0 
+.outputs O 
+
+# Usa porta xnor per verificare che tutti i bit sono uguali
+.search xnor.blif
+.subckt xnor A=A3 B=B3 O=X3 
+.subckt xnor A=A2 B=B2 O=X2 
+.subckt xnor A=A1 B=B1 O=X1 
+.subckt xnor A=A0 B=B0 O=X0 
+
+.names X3 X2 X1 X0 O 
+1111 1 
+
+.end 

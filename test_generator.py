@@ -26,6 +26,8 @@ def n_bits(n, start=0, endbefore=None):
     11
 
     :param int n: numero di bit
+    :param int start: numero che corrisponde alla combinazione iniziale
+    :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
     """
     range_combs = range(start, 2**n)
     if endbefore:
@@ -44,6 +46,7 @@ def binnotation2bits(binary, n, ispositive=True):
     Converte numero binario in stringa.
     :param binary: numero binario
     :param int n: numero di cifre
+    :param bool ispositive: True indica che il numero e' positivo (altrimenti si fa padding con '1')
     :return str str_bin: stringa con il numero binario
     """
     str_bin = str(binary).lstrip("-").lstrip("0b")
@@ -104,6 +107,11 @@ def gen_simulations(n, print_state=True, start=0, endbefore=None):
 
     simulate 1 1
     print_state
+
+    :param int n: numero di bit
+    :param bool print_state: True restituisce il comando per visualizzare lo stato attuale
+    :param int start: numero che corrisponde alla combinazione iniziale
+    :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
     """
     for i in n_bits(n, start, endbefore):
         cmd_simulate = "simulate " + v_to_str(add_spaces_between(i)) + "\n"
@@ -138,6 +146,8 @@ def gen_registry_networkstate(n, start=0, endbefore=None):
     Network state: 11
 
     :param int n: numero di bit
+    :param int start: numero che corrisponde alla combinazione iniziale
+    :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
     """
     for i in n_bits(n, start, endbefore):
         comment = "# " + i
@@ -151,6 +161,8 @@ def gen_adder_output(nbit, start=0, endbefore=None):
     """
     Generatore di output esatto per i sommatori fulladder.
     :param int nbit: numero di bit totali in ingresso
+    :param int start: numero che corrisponde alla combinazione iniziale
+    :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
     """
     for combination in n_bits(nbit, start, endbefore):
         # 110 -> cin = 0, a = 1 b = 1
@@ -215,6 +227,8 @@ def gen_sub_output(nbit, start=0, endbefore=None):
     > E' stata aggiunta per evitare warning di fanout di SIS
 
     :param int nbit: numero di bit di tutti gli ingressi
+    :param int start: numero che corrisponde alla combinazione iniziale
+    :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
     """
     for combination in n_bits(nbit, start, endbefore):
         # 1110 -> a = 11 b = 10
@@ -320,6 +334,8 @@ def gen_mux_output(ninputs, nbit, start=0, endbefore=None):
 
     :param int ninputs: numero di input nel multiplexer
     :param int nbit: numero di bit di tutti gli ingressi
+    :param int start: numero che corrisponde alla combinazione iniziale
+    :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
     """
     for combination in n_bits(nbit, start, endbefore):
         # 2 ingressi (e 3 bit) --> 1 bit di selettore
@@ -357,6 +373,14 @@ def gen_mux_output(ninputs, nbit, start=0, endbefore=None):
 
 
 def gen_shiftersx_output(leninput, nbit, start=0, endbefore=None):
+    """
+    Genera output corretti per gli shifter a sinistra.
+
+    :param int leninput: lunghezza dell'input (TODO: rimuovere il parametro, basta usare nbit al suo posto)
+    :param int nbit: numero di bit di tutti gli ingressi
+    :param int start: numero che corrisponde alla combinazione iniziale
+    :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
+    """
     for combination in n_bits(nbit, start, endbefore):
         
         if boold:
@@ -382,6 +406,41 @@ def gen_shiftersx_output(leninput, nbit, start=0, endbefore=None):
         yield fulloutput
 
 
+def gen_comparator_output(nbit, start=0, endbefore=None):
+    """
+    Generatore di output esatti per i comparatori.
+
+    :param int nbit: numero di bit di tutti gli ingressi
+    :param int start: numero che corrisponde alla combinazione iniziale
+    :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
+    """
+    for combination in n_bits(nbit, start, endbefore):
+        
+        if boold:
+            print("input: ", combination)
+        
+        # se entra 011 di lunghezza 3, entra il numero 3, moltiplica per 2 -> 6
+        input_len = int(len(combination)/2)
+        int_a = int(combination[0:input_len], 2)
+        int_b = int(combination[input_len:], 2)
+        
+        bin_output = "0"
+        if int_a == int_b:
+            bin_output = "1"
+
+        if boold:
+            print("Output: ", bin_output)
+
+        comment = "# {} == {} ?\n".format(int_a, int_b)
+        netssim = "Network simulation:\n"
+        outputs = "Outputs: " + v_to_str(add_spaces_between(bin_output)) + "\n"
+        nxstate= "Next state:\n\n"
+
+        fulloutput = comment + netssim + outputs + nxstate
+        
+        yield fulloutput
+
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Automatizza la creazione dei test.')
@@ -393,16 +452,17 @@ if __name__ == "__main__":
     parser.add_argument('--subtractor', action='store_true', default=False, help='indica di creare output corretti per testare i sottrattori (nota: l\'ultimo bit e\' sempre 1 e non fa parte del risultato)')
     parser.add_argument('--mux', action='store_true', default=False, help='indica di creare output corretti per testare i multiplexer')
     parser.add_argument('--shiftersx', action='store_true', default=False, help='indica di creare output corretti per testare gli shifter a sinistra')
+    parser.add_argument('--comparator', action='store_true', default=False, help='indica di creare output corretti per testare i comparatori')
     parser.add_argument('--ninputs', type=int, help='numero di input nel multiplexer')
     parser.add_argument('--leninput', type=int, help='numero di bit che rappresentano l\'input nei shifter')
     parser.add_argument('--startnum', type=int, default=0, help='numero da cui iniziare le combinazioni')
     parser.add_argument('--endnum', type=int, default=None, help='numero in cui forzare la fine delle combinazioni')
     args = parser.parse_args()
     
-    if not (args.simulate or args.registry or args.fulladder or args.subtractor or args.mux or args.shiftersx):
+    if not (args.simulate or args.registry or args.fulladder or args.subtractor or args.mux or args.shiftersx or args.comparator):
         print("ATTENZIONE: Una flag deve essere vera\n")
         parser.print_help()
-    elif (args.simulate + args.registry + args.fulladder + args.subtractor + args.mux + args.shiftersx) > 1:
+    elif (args.simulate + args.registry + args.fulladder + args.subtractor + args.mux + args.shiftersx + args.comparator) > 1:
         print("ATTENZIONE: Solo UNA flag deve essere vera\n")
         parser.print_help()
     else:
@@ -447,5 +507,9 @@ if __name__ == "__main__":
 
         elif args.subtractor:
             for combination in gen_sub_output(args.nbits, start=args.startnum, endbefore=args.endnum):
+                print(combination, end="")
+        
+        elif args.comparator:
+            for combination in gen_comparator_output(args.nbits, start=args.startnum, endbefore=args.endnum):
                 print(combination, end="")
 
