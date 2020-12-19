@@ -1,0 +1,25 @@
+# SHIFTER A SINISTRA, USCITA A 4 BIT
+
+.model shiftersx4b
+.inputs A2 A1 A0
+.outputs O3 O2 O1 O0
+
+# se A2 A1 A = 000 --> O3 O2 O1 O0 = 0000
+# se A2 A1 A = 001 --> O3 O2 O1 O0 = 0010
+# ...
+# se A2 A1 A = 101 --> O3 O2 O1 O0 = 1010
+# ...
+# se A2 A1 A = 111 --> O3 O2 O1 O0 = 1110
+.names A2 O3
+1 1
+
+.names A1 O2
+1 1
+
+.names A0 O1
+1 1
+
+# O0 e' sempre zero
+.names O0
+
+.end

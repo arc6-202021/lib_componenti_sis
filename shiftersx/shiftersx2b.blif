@@ -1,0 +1,14 @@
+# SHIFTER A SINISTRA, USCITA A 2 BIT
+
+.model shiftersx2b
+.inputs A
+.outputs O1 O0
+
+# se A = 1 --> O1 O0 = 1 0
+# se A = 0 --> O1 O0 = 0 0
+.names A O1
+1 1
+
+.names O0
+
+.end
