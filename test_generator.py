@@ -441,6 +441,74 @@ def gen_comparator_output(nbit, start=0, endbefore=None):
         yield fulloutput
 
 
+def gen_greaterthan_output(nbit, start=0, endbefore=None):
+    """
+    Generatore di output esatti per le funzioni maggiore.
+
+    :param int nbit: numero di bit di tutti gli ingressi
+    :param int start: numero che corrisponde alla combinazione iniziale
+    :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
+    """
+    for combination in n_bits(nbit, start, endbefore):
+        
+        if boold:
+            print("input: ", combination)
+
+        input_len = int(len(combination)/2)
+        int_a = int(combination[0:input_len], 2)
+        int_b = int(combination[input_len:], 2)
+        
+        bin_output = "0"
+        if int_a > int_b:
+            bin_output = "1"
+
+        if boold:
+            print("Output: ", bin_output)
+
+        comment = "# {} > {} ?\n".format(int_a, int_b)
+        netssim = "Network simulation:\n"
+        outputs = "Outputs: " + v_to_str(add_spaces_between(bin_output)) + "\n"
+        nxstate= "Next state:\n\n"
+
+        fulloutput = comment + netssim + outputs + nxstate
+        
+        yield fulloutput
+
+
+def gen_lowerequal_output(nbit, start=0, endbefore=None):
+    """
+    Generatore di output esatti per le funzioni minore uguale.
+
+    :param int nbit: numero di bit di tutti gli ingressi
+    :param int start: numero che corrisponde alla combinazione iniziale
+    :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
+    """
+    for combination in n_bits(nbit, start, endbefore):
+        
+        if boold:
+            print("input: ", combination)
+
+        input_len = int(len(combination)/2)
+        int_a = int(combination[0:input_len], 2)
+        int_b = int(combination[input_len:], 2)
+        
+        bin_output = "0"
+        if int_a <= int_b:
+            bin_output = "1"
+
+        if boold:
+            print("Output: ", bin_output)
+
+        comment = "# {} <= {} ?\n".format(int_a, int_b)
+        netssim = "Network simulation:\n"
+        outputs = "Outputs: " + v_to_str(add_spaces_between(bin_output)) + "\n"
+        nxstate= "Next state:\n\n"
+
+        fulloutput = comment + netssim + outputs + nxstate
+        
+        yield fulloutput
+
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Automatizza la creazione dei test.')
@@ -453,16 +521,18 @@ if __name__ == "__main__":
     parser.add_argument('--mux', action='store_true', default=False, help='indica di creare output corretti per testare i multiplexer')
     parser.add_argument('--shiftersx', action='store_true', default=False, help='indica di creare output corretti per testare gli shifter a sinistra')
     parser.add_argument('--comparator', action='store_true', default=False, help='indica di creare output corretti per testare i comparatori')
+    parser.add_argument('--greater', action='store_true', default=False, help='indica di creare output corretti per testare la funzione maggiore')
+    parser.add_argument('--lowerequal', action='store_true', default=False, help='indica di creare output corretti per testare la funzione minore uguale')
     parser.add_argument('--ninputs', type=int, help='numero di input nel multiplexer')
     parser.add_argument('--leninput', type=int, help='numero di bit che rappresentano l\'input nei shifter')
     parser.add_argument('--startnum', type=int, default=0, help='numero da cui iniziare le combinazioni')
     parser.add_argument('--endnum', type=int, default=None, help='numero in cui forzare la fine delle combinazioni')
     args = parser.parse_args()
     
-    if not (args.simulate or args.registry or args.fulladder or args.subtractor or args.mux or args.shiftersx or args.comparator):
+    if not (args.simulate or args.registry or args.fulladder or args.subtractor or args.mux or args.shiftersx or args.comparator or args.greater or args.lowerequal):
         print("ATTENZIONE: Una flag deve essere vera\n")
         parser.print_help()
-    elif (args.simulate + args.registry + args.fulladder + args.subtractor + args.mux + args.shiftersx + args.comparator) > 1:
+    elif (args.simulate + args.registry + args.fulladder + args.subtractor + args.mux + args.shiftersx + args.comparator + args.greater + args.lowerequal) > 1:
         print("ATTENZIONE: Solo UNA flag deve essere vera\n")
         parser.print_help()
     else:
@@ -513,3 +583,10 @@ if __name__ == "__main__":
             for combination in gen_comparator_output(args.nbits, start=args.startnum, endbefore=args.endnum):
                 print(combination, end="")
 
+        elif args.greater:
+            for combination in gen_greaterthan_output(args.nbits, start=args.startnum, endbefore=args.endnum):
+                print(combination, end="")
+
+        elif args.lowerequal:
+            for combination in gen_lowerequal_output(args.nbits, start=args.startnum, endbefore=args.endnum):
+                print(combination, end="")
