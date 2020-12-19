@@ -10,6 +10,8 @@ Il repository contiene anche script e file di test.
 
 |Badge|Descrizione|
 |-----|-----------|
+|![Tester funzione maggiore](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20funzione%20maggiore/badge.svg)|testa funzione maggiore: indica se il primo dato e' maggiore del secondo dato<br><blockquote><p>richiedono la porta logica xor</p></blockquote>|
+|![Tester funzione minore uguale](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20funzione%20minore%20uguale/badge.svg)|testa funzione minore uguale: indica se il primo dato e' minore uguale del secondo dato<br><blockquote><p>richiedono la funzione complementare (maggiore) e le loro dipendenze (porta logica xor)</p></blockquote>|
 |![Tester multiplexer](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20multiplexer/badge.svg)|testa multiplexer: permettono di selezionare uno dei dati in ingresso e ritrasmetterli in uscita |
 |![Tester porte logiche](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20porte%20logiche/badge.svg)|testa porte not, or, and, ...|
 |![Tester registri](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20registri/badge.svg)|testa registri che si occupano di memorizzare dati|
