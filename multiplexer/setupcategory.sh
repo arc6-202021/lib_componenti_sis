@@ -126,11 +126,11 @@ randport3=$(python3 -S -c "import random; print(random.randint(80,  120) * 73786
 randport4=$(python3 -S -c "import random; print(random.randint(120, 160) * 737869762948381)")
 randport5=$(python3 -S -c "import random; print(random.randint(160, 200) * 737869762948381)")
 
-randport1_end=$(( randport1 + 85899 ))
-randport2_end=$(( randport2 + 85899 ))
-randport3_end=$(( randport3 + 85899 ))
-randport4_end=$(( randport4 + 85899 ))
-randport5_end=$(( randport5 + 85899 ))
+randport1_end=$(( randport1 + 42949 ))
+randport2_end=$(( randport2 + 42949 ))
+randport3_end=$(( randport3 + 42949 ))
+randport4_end=$(( randport4 + 42949 ))
+randport5_end=$(( randport5 + 42949 ))
 
 if [ "$randport1_end" -lt "0" ]; then
     randport1_end=18446744073709551614
