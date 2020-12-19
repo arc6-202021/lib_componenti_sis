@@ -9,6 +9,7 @@
 .subckt maggiore6 A5=C5 A4=C4 A3=C3 A2=C2 A1=C1 A0=C0 B5=D5 B4=D4 B3=D3 B2=D2 B1=D1 B0=D0 AgtB=z 
 
 # nega il risultato
-.names z CleD 0 1 
+.names z CleD 
+0 1 
  
 .end

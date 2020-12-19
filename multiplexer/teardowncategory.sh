@@ -12,7 +12,7 @@ mv $SCRIPTDIR/mux8i4b_part1.blif $SCRIPTDIR/mux8i4b.blif
 
 # -- TEST mux8i8b
 
-mv $SCRIPTDIR/mux8i8b_part1.blif $SCRIPTDIR/mux8i8b.blif
+#mv $SCRIPTDIR/mux8i8b_part1.blif $SCRIPTDIR/mux8i8b.blif
 
 # rimuovi file extra
 rm $SCRIPTDIR/mux*_part*.blif
