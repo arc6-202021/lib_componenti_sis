@@ -1,0 +1,22 @@
+on:
+  push
+
+name: Tester sottrattori
+
+jobs:
+  build:
+    name: Tester sottrattori
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install Python
+        uses: actions/setup-python@v2.1.4
+        with:
+          python-version: 3.8.5
+      - name: Install SIS
+        run: wget https://github.com/JackHack96/logic-synthesis/releases/download/1.3.6/sis_1.3.6-1_amd64.deb && sudo dpkg -i sis_1.3.6-1_amd64.deb
+      - name: Check Python and SIS version
+        run: echo -e "\n[PYTHON VERSION]\n" && python3 --version && echo -e "\n\n[SIS VERSION]\n" && (sis -v || true)
+      - name: Execute tests
+        run: python3 blif_tester.py sottrattori

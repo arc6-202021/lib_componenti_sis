@@ -168,7 +168,11 @@ def compare(sis_simulation_output, sis_correct_outputs, config_path, t_flog):
     except IOError as e:
         compare_result["success"] = False
         printlog("[ERRORE] ({}) ".format(type(e).__name__) + str(e), t_flog)
-    
+
+    except ZeroDivisionError as e:
+        compare_result["success"] = False
+        printlog("[ERRORE] ({}), probabilmente il file con gli output corretti e/o il file con gli output di simulazione e' vuoto".format(type(e).__name__) + str(e), t_flog)
+        
     return compare_result
 
 
@@ -256,14 +260,29 @@ def parse_config(t_file):
 if __name__ == "__main__":
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
+    category_hasbeen_tested = False
 
     with open("log.txt", "a") as flog:
-        printlog("[START] Inizio dei test", flog)
-
         try:
+            # controlla i parametri
+            if len(sys.argv) == 1:
+                # esegui tutti i test
+                tests = "all"
+
+            elif len(sys.argv) == 2:
+                # esegui solo i test della categoria specificata
+                tests = sys.argv[1]
+            else:
+                raise Exception("[ERROR] Troppi parametri (> 1)")
+                    
+            printlog("[START] Inizio dei test", flog)
+            
             # scorri elementi della cartella src
             for element in os.listdir(current_dir):
-                if os.path.isdir(os.path.join(current_dir, element)):
+                if os.path.isdir(os.path.join(current_dir, element)) and (tests == "all" or tests == element):
+                    # specifica che la categoria e' stata trovata
+                    category_hasbeen_tested = True
+
                     # entra nella cartella dei blif
                     if boold:
                         printlog("[DEBUG - SRC] Elemento '{}' e' cartella".format(os.path.join(current_dir, element)), flog)
@@ -344,13 +363,22 @@ if __name__ == "__main__":
                         else:
                             if boold:
                                 printlog("[DEBUG - BLIFDIR] Elemento '{}' non e' un file".format(os.path.join(current_dir, l)), flog)
-                
+
+                    teardowncategory_script = os.path.join(blif_directory, "teardowncategory.sh")
+                    if os.path.isfile(teardowncategory_script):
+                        printlog("[TEARDOWN CATEGORY] File di teardown di questa categoria di componenti trovato, eseguo script per terminare i test", flog)
+                        subprocess.Popen("sudo " + teardowncategory_script + " " + blif_directory, stdout=subprocess.PIPE, shell=True).communicate()
+
                 else:
                     if boold:
                         printlog("[DEBUG] Elemento '{}' non e' cartella".format(os.path.join(current_dir, element)), flog)
-        
+
+            if not category_hasbeen_tested:
+                success = False
+                printlog("[ERRORE] Categoria di test passata come parametro non trovata", flog)
+
         except Exception as e:
-            printlog("[ERRORE] Errore non previsto '{}' (dettagli: '{}')".format(type(e).__name__, str(e)), flog)
+            printlog("[ERRORE] Errore non previsto '{}' (dettagli: '{}', riga: '{}')".format(type(e).__name__, str(e), sys.exc_info()[-1].tb_lineno), flog)
             success = False
         
         printlog("[END] Fine dei test", flog)

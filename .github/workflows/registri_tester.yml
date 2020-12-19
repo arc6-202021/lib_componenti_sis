@@ -1,11 +1,11 @@
 on:
   push
 
-name: BLIF tester
+name: Tester registri
 
 jobs:
   build:
-    name: BLIF tester
+    name: Tester registri
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout code
@@ -19,4 +19,4 @@ jobs:
       - name: Check Python and SIS version
         run: echo -e "\n[PYTHON VERSION]\n" && python3 --version && echo -e "\n\n[SIS VERSION]\n" && (sis -v || true)
       - name: Execute tests
-        run: python3 blif_tester.py
+        run: python3 blif_tester.py registri
