@@ -1,0 +1,9 @@
+# 0 * 2 = 0
+Network simulation:
+Outputs: 0 0 
+Next state:
+
+# 1 * 2 = 2
+Network simulation:
+Outputs: 1 0 
+Next state:

@@ -1,0 +1,40 @@
+# 0 * 2 = 0
+Network simulation:
+Outputs: 0 0 0 0 
+Next state:
+
+# 1 * 2 = 2
+Network simulation:
+Outputs: 0 0 1 0 
+Next state:
+
+# 2 * 2 = 4
+Network simulation:
+Outputs: 0 1 0 0 
+Next state:
+
+# 3 * 2 = 6
+Network simulation:
+Outputs: 0 1 1 0 
+Next state:
+
+# 4 * 2 = 8
+Network simulation:
+Outputs: 1 0 0 0 
+Next state:
+
+# 5 * 2 = 10
+Network simulation:
+Outputs: 1 0 1 0 
+Next state:
+
+# 6 * 2 = 12
+Network simulation:
+Outputs: 1 1 0 0 
+Next state:
+
+# 7 * 2 = 14
+Network simulation:
+Outputs: 1 1 1 0 
+Next state:
+

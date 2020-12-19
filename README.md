@@ -1,11 +1,21 @@
 # LIBRERIA COMPONENTI SIS
 
-![BLIF tester](https://github.com/arc6-202021/lib_componenti_sis/workflows/BLIF%20tester/badge.svg)
 
 Questo repository contiene file blif
 con componenti pronti per essere simulati su SIS.
 
 Il repository contiene anche script e file di test.
+
+## Test
+
+|Badge|Descrizione|
+|-----|-----------|
+|![Tester multiplexer](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20multiplexer/badge.svg)|testa multiplexer: permettono di selezionare uno dei dati in ingresso e ritrasmetterli in uscita |
+|![Tester porte logiche](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20porte%20logiche/badge.svg)|testa porte not, or, and, ...|
+|![Tester registri](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20registri/badge.svg)|testa registri che si occupano di memorizzare dati|
+|![Tester shifter a sinistra](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20shifter%20a%20sinistra/badge.svg)|testa shifter a sinistra: permettono di moltiplicare un numero per 2 |
+|![Tester sommatori](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20sommatori/badge.svg)|testa i sommatori: sommano due ingressi (e eventuale riporto in ingresso) e mette in uscita il risultato con eventuale riporto|
+|![Tester sottrattori](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20sottrattori/badge.svg)|testa i sottrattori: effettuano la differenza tra due ingressi e restituiscono il risultato <br> <blockquote><p>il bit meno siginificativo in uscita e' sempre 1. Questo bit non fa parte del risultato ed e' necessario per evitare warning di fanout di SIS</p></blockquote><blockquote><p>i sottrattori necessitano della porta not e del sommatore fulladder a 2 bit</p></blockquote>|
 
 ## Descrizione
 

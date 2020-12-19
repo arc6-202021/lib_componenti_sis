@@ -356,6 +356,32 @@ def gen_mux_output(ninputs, nbit, start=0, endbefore=None):
         yield fulloutput
 
 
+def gen_shiftersx_output(leninput, nbit, start=0, endbefore=None):
+    for combination in n_bits(nbit, start, endbefore):
+        
+        if boold:
+            print("input: ", combination)
+        
+        # se entra 011 di lunghezza 3, entra il numero 3, moltiplica per 2 -> 6
+        int_input = int(combination, 2)
+        times2_input = int_input * 2
+        
+        # 6 in binario e' 110, in lunghezza 3+1 -> 0110
+        bin_output = binnotation2bits(bin(times2_input), leninput+1)
+
+        if boold:
+            print("Output: ", bin_output)
+
+        comment = "# {} * 2 = {}\n".format(int_input, times2_input)
+        netssim = "Network simulation:\n"
+        outputs = "Outputs: " + v_to_str(add_spaces_between(bin_output)) + "\n"
+        nxstate= "Next state:\n\n"
+
+        fulloutput = comment + netssim + outputs + nxstate
+        
+        yield fulloutput
+
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Automatizza la creazione dei test.')
@@ -366,20 +392,26 @@ if __name__ == "__main__":
     parser.add_argument('--fulladder', action='store_true', default=False, help='indica di creare output corretti per testare i sommatori fulladder')
     parser.add_argument('--subtractor', action='store_true', default=False, help='indica di creare output corretti per testare i sottrattori (nota: l\'ultimo bit e\' sempre 1 e non fa parte del risultato)')
     parser.add_argument('--mux', action='store_true', default=False, help='indica di creare output corretti per testare i multiplexer')
+    parser.add_argument('--shiftersx', action='store_true', default=False, help='indica di creare output corretti per testare gli shifter a sinistra')
     parser.add_argument('--ninputs', type=int, help='numero di input nel multiplexer')
+    parser.add_argument('--leninput', type=int, help='numero di bit che rappresentano l\'input nei shifter')
     parser.add_argument('--startnum', type=int, default=0, help='numero da cui iniziare le combinazioni')
     parser.add_argument('--endnum', type=int, default=None, help='numero in cui forzare la fine delle combinazioni')
     args = parser.parse_args()
     
-    if not (args.simulate or args.registry or args.fulladder or args.subtractor or args.mux):
+    if not (args.simulate or args.registry or args.fulladder or args.subtractor or args.mux or args.shiftersx):
         print("ATTENZIONE: Una flag deve essere vera\n")
         parser.print_help()
-    elif (args.simulate + args.registry + args.fulladder + args.subtractor + args.mux) > 1:
+    elif (args.simulate + args.registry + args.fulladder + args.subtractor + args.mux + args.shiftersx) > 1:
         print("ATTENZIONE: Solo UNA flag deve essere vera\n")
         parser.print_help()
     else:
         if args.mux and (not args.ninputs):
             print("ATTENZIONE: la flag --mux richiede la flag --ninputs\n")
+            parser.print_help()
+
+        elif args.shiftersx and (not args.leninput):
+            print("ATTENZIONE: la flag --shiftersx richiede la flag --leninput\n")
             parser.print_help()
 
         elif args.startnum < 0:
@@ -393,6 +425,11 @@ if __name__ == "__main__":
         elif args.mux and args.ninputs:
             # ottieni gli output dei multiplexer
             for combination in gen_mux_output(args.ninputs, args.nbits, start=args.startnum, endbefore=args.endnum):
+                print(combination, end="")
+        
+        elif args.shiftersx and args.leninput:
+            # ottieni gli output del shifter a sinistra
+            for combination in gen_shiftersx_output(args.leninput, args.nbits, start=args.startnum, endbefore=args.endnum):
                 print(combination, end="")
 
         elif args.simulate:

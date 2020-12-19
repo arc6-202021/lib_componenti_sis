@@ -1,0 +1,640 @@
+# 0 * 2 = 0
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 
+Next state:
+
+# 1 * 2 = 2
+Network simulation:
+Outputs: 0 0 0 0 0 0 1 0 
+Next state:
+
+# 2 * 2 = 4
+Network simulation:
+Outputs: 0 0 0 0 0 1 0 0 
+Next state:
+
+# 3 * 2 = 6
+Network simulation:
+Outputs: 0 0 0 0 0 1 1 0 
+Next state:
+
+# 4 * 2 = 8
+Network simulation:
+Outputs: 0 0 0 0 1 0 0 0 
+Next state:
+
+# 5 * 2 = 10
+Network simulation:
+Outputs: 0 0 0 0 1 0 1 0 
+Next state:
+
+# 6 * 2 = 12
+Network simulation:
+Outputs: 0 0 0 0 1 1 0 0 
+Next state:
+
+# 7 * 2 = 14
+Network simulation:
+Outputs: 0 0 0 0 1 1 1 0 
+Next state:
+
+# 8 * 2 = 16
+Network simulation:
+Outputs: 0 0 0 1 0 0 0 0 
+Next state:
+
+# 9 * 2 = 18
+Network simulation:
+Outputs: 0 0 0 1 0 0 1 0 
+Next state:
+
+# 10 * 2 = 20
+Network simulation:
+Outputs: 0 0 0 1 0 1 0 0 
+Next state:
+
+# 11 * 2 = 22
+Network simulation:
+Outputs: 0 0 0 1 0 1 1 0 
+Next state:
+
+# 12 * 2 = 24
+Network simulation:
+Outputs: 0 0 0 1 1 0 0 0 
+Next state:
+
+# 13 * 2 = 26
+Network simulation:
+Outputs: 0 0 0 1 1 0 1 0 
+Next state:
+
+# 14 * 2 = 28
+Network simulation:
+Outputs: 0 0 0 1 1 1 0 0 
+Next state:
+
+# 15 * 2 = 30
+Network simulation:
+Outputs: 0 0 0 1 1 1 1 0 
+Next state:
+
+# 16 * 2 = 32
+Network simulation:
+Outputs: 0 0 1 0 0 0 0 0 
+Next state:
+
+# 17 * 2 = 34
+Network simulation:
+Outputs: 0 0 1 0 0 0 1 0 
+Next state:
+
+# 18 * 2 = 36
+Network simulation:
+Outputs: 0 0 1 0 0 1 0 0 
+Next state:
+
+# 19 * 2 = 38
+Network simulation:
+Outputs: 0 0 1 0 0 1 1 0 
+Next state:
+
+# 20 * 2 = 40
+Network simulation:
+Outputs: 0 0 1 0 1 0 0 0 
+Next state:
+
+# 21 * 2 = 42
+Network simulation:
+Outputs: 0 0 1 0 1 0 1 0 
+Next state:
+
+# 22 * 2 = 44
+Network simulation:
+Outputs: 0 0 1 0 1 1 0 0 
+Next state:
+
+# 23 * 2 = 46
+Network simulation:
+Outputs: 0 0 1 0 1 1 1 0 
+Next state:
+
+# 24 * 2 = 48
+Network simulation:
+Outputs: 0 0 1 1 0 0 0 0 
+Next state:
+
+# 25 * 2 = 50
+Network simulation:
+Outputs: 0 0 1 1 0 0 1 0 
+Next state:
+
+# 26 * 2 = 52
+Network simulation:
+Outputs: 0 0 1 1 0 1 0 0 
+Next state:
+
+# 27 * 2 = 54
+Network simulation:
+Outputs: 0 0 1 1 0 1 1 0 
+Next state:
+
+# 28 * 2 = 56
+Network simulation:
+Outputs: 0 0 1 1 1 0 0 0 
+Next state:
+
+# 29 * 2 = 58
+Network simulation:
+Outputs: 0 0 1 1 1 0 1 0 
+Next state:
+
+# 30 * 2 = 60
+Network simulation:
+Outputs: 0 0 1 1 1 1 0 0 
+Next state:
+
+# 31 * 2 = 62
+Network simulation:
+Outputs: 0 0 1 1 1 1 1 0 
+Next state:
+
+# 32 * 2 = 64
+Network simulation:
+Outputs: 0 1 0 0 0 0 0 0 
+Next state:
+
+# 33 * 2 = 66
+Network simulation:
+Outputs: 0 1 0 0 0 0 1 0 
+Next state:
+
+# 34 * 2 = 68
+Network simulation:
+Outputs: 0 1 0 0 0 1 0 0 
+Next state:
+
+# 35 * 2 = 70
+Network simulation:
+Outputs: 0 1 0 0 0 1 1 0 
+Next state:
+
+# 36 * 2 = 72
+Network simulation:
+Outputs: 0 1 0 0 1 0 0 0 
+Next state:
+
+# 37 * 2 = 74
+Network simulation:
+Outputs: 0 1 0 0 1 0 1 0 
+Next state:
+
+# 38 * 2 = 76
+Network simulation:
+Outputs: 0 1 0 0 1 1 0 0 
+Next state:
+
+# 39 * 2 = 78
+Network simulation:
+Outputs: 0 1 0 0 1 1 1 0 
+Next state:
+
+# 40 * 2 = 80
+Network simulation:
+Outputs: 0 1 0 1 0 0 0 0 
+Next state:
+
+# 41 * 2 = 82
+Network simulation:
+Outputs: 0 1 0 1 0 0 1 0 
+Next state:
+
+# 42 * 2 = 84
+Network simulation:
+Outputs: 0 1 0 1 0 1 0 0 
+Next state:
+
+# 43 * 2 = 86
+Network simulation:
+Outputs: 0 1 0 1 0 1 1 0 
+Next state:
+
+# 44 * 2 = 88
+Network simulation:
+Outputs: 0 1 0 1 1 0 0 0 
+Next state:
+
+# 45 * 2 = 90
+Network simulation:
+Outputs: 0 1 0 1 1 0 1 0 
+Next state:
+
+# 46 * 2 = 92
+Network simulation:
+Outputs: 0 1 0 1 1 1 0 0 
+Next state:
+
+# 47 * 2 = 94
+Network simulation:
+Outputs: 0 1 0 1 1 1 1 0 
+Next state:
+
+# 48 * 2 = 96
+Network simulation:
+Outputs: 0 1 1 0 0 0 0 0 
+Next state:
+
+# 49 * 2 = 98
+Network simulation:
+Outputs: 0 1 1 0 0 0 1 0 
+Next state:
+
+# 50 * 2 = 100
+Network simulation:
+Outputs: 0 1 1 0 0 1 0 0 
+Next state:
+
+# 51 * 2 = 102
+Network simulation:
+Outputs: 0 1 1 0 0 1 1 0 
+Next state:
+
+# 52 * 2 = 104
+Network simulation:
+Outputs: 0 1 1 0 1 0 0 0 
+Next state:
+
+# 53 * 2 = 106
+Network simulation:
+Outputs: 0 1 1 0 1 0 1 0 
+Next state:
+
+# 54 * 2 = 108
+Network simulation:
+Outputs: 0 1 1 0 1 1 0 0 
+Next state:
+
+# 55 * 2 = 110
+Network simulation:
+Outputs: 0 1 1 0 1 1 1 0 
+Next state:
+
+# 56 * 2 = 112
+Network simulation:
+Outputs: 0 1 1 1 0 0 0 0 
+Next state:
+
+# 57 * 2 = 114
+Network simulation:
+Outputs: 0 1 1 1 0 0 1 0 
+Next state:
+
+# 58 * 2 = 116
+Network simulation:
+Outputs: 0 1 1 1 0 1 0 0 
+Next state:
+
+# 59 * 2 = 118
+Network simulation:
+Outputs: 0 1 1 1 0 1 1 0 
+Next state:
+
+# 60 * 2 = 120
+Network simulation:
+Outputs: 0 1 1 1 1 0 0 0 
+Next state:
+
+# 61 * 2 = 122
+Network simulation:
+Outputs: 0 1 1 1 1 0 1 0 
+Next state:
+
+# 62 * 2 = 124
+Network simulation:
+Outputs: 0 1 1 1 1 1 0 0 
+Next state:
+
+# 63 * 2 = 126
+Network simulation:
+Outputs: 0 1 1 1 1 1 1 0 
+Next state:
+
+# 64 * 2 = 128
+Network simulation:
+Outputs: 1 0 0 0 0 0 0 0 
+Next state:
+
+# 65 * 2 = 130
+Network simulation:
+Outputs: 1 0 0 0 0 0 1 0 
+Next state:
+
+# 66 * 2 = 132
+Network simulation:
+Outputs: 1 0 0 0 0 1 0 0 
+Next state:
+
+# 67 * 2 = 134
+Network simulation:
+Outputs: 1 0 0 0 0 1 1 0 
+Next state:
+
+# 68 * 2 = 136
+Network simulation:
+Outputs: 1 0 0 0 1 0 0 0 
+Next state:
+
+# 69 * 2 = 138
+Network simulation:
+Outputs: 1 0 0 0 1 0 1 0 
+Next state:
+
+# 70 * 2 = 140
+Network simulation:
+Outputs: 1 0 0 0 1 1 0 0 
+Next state:
+
+# 71 * 2 = 142
+Network simulation:
+Outputs: 1 0 0 0 1 1 1 0 
+Next state:
+
+# 72 * 2 = 144
+Network simulation:
+Outputs: 1 0 0 1 0 0 0 0 
+Next state:
+
+# 73 * 2 = 146
+Network simulation:
+Outputs: 1 0 0 1 0 0 1 0 
+Next state:
+
+# 74 * 2 = 148
+Network simulation:
+Outputs: 1 0 0 1 0 1 0 0 
+Next state:
+
+# 75 * 2 = 150
+Network simulation:
+Outputs: 1 0 0 1 0 1 1 0 
+Next state:
+
+# 76 * 2 = 152
+Network simulation:
+Outputs: 1 0 0 1 1 0 0 0 
+Next state:
+
+# 77 * 2 = 154
+Network simulation:
+Outputs: 1 0 0 1 1 0 1 0 
+Next state:
+
+# 78 * 2 = 156
+Network simulation:
+Outputs: 1 0 0 1 1 1 0 0 
+Next state:
+
+# 79 * 2 = 158
+Network simulation:
+Outputs: 1 0 0 1 1 1 1 0 
+Next state:
+
+# 80 * 2 = 160
+Network simulation:
+Outputs: 1 0 1 0 0 0 0 0 
+Next state:
+
+# 81 * 2 = 162
+Network simulation:
+Outputs: 1 0 1 0 0 0 1 0 
+Next state:
+
+# 82 * 2 = 164
+Network simulation:
+Outputs: 1 0 1 0 0 1 0 0 
+Next state:
+
+# 83 * 2 = 166
+Network simulation:
+Outputs: 1 0 1 0 0 1 1 0 
+Next state:
+
+# 84 * 2 = 168
+Network simulation:
+Outputs: 1 0 1 0 1 0 0 0 
+Next state:
+
+# 85 * 2 = 170
+Network simulation:
+Outputs: 1 0 1 0 1 0 1 0 
+Next state:
+
+# 86 * 2 = 172
+Network simulation:
+Outputs: 1 0 1 0 1 1 0 0 
+Next state:
+
+# 87 * 2 = 174
+Network simulation:
+Outputs: 1 0 1 0 1 1 1 0 
+Next state:
+
+# 88 * 2 = 176
+Network simulation:
+Outputs: 1 0 1 1 0 0 0 0 
+Next state:
+
+# 89 * 2 = 178
+Network simulation:
+Outputs: 1 0 1 1 0 0 1 0 
+Next state:
+
+# 90 * 2 = 180
+Network simulation:
+Outputs: 1 0 1 1 0 1 0 0 
+Next state:
+
+# 91 * 2 = 182
+Network simulation:
+Outputs: 1 0 1 1 0 1 1 0 
+Next state:
+
+# 92 * 2 = 184
+Network simulation:
+Outputs: 1 0 1 1 1 0 0 0 
+Next state:
+
+# 93 * 2 = 186
+Network simulation:
+Outputs: 1 0 1 1 1 0 1 0 
+Next state:
+
+# 94 * 2 = 188
+Network simulation:
+Outputs: 1 0 1 1 1 1 0 0 
+Next state:
+
+# 95 * 2 = 190
+Network simulation:
+Outputs: 1 0 1 1 1 1 1 0 
+Next state:
+
+# 96 * 2 = 192
+Network simulation:
+Outputs: 1 1 0 0 0 0 0 0 
+Next state:
+
+# 97 * 2 = 194
+Network simulation:
+Outputs: 1 1 0 0 0 0 1 0 
+Next state:
+
+# 98 * 2 = 196
+Network simulation:
+Outputs: 1 1 0 0 0 1 0 0 
+Next state:
+
+# 99 * 2 = 198
+Network simulation:
+Outputs: 1 1 0 0 0 1 1 0 
+Next state:
+
+# 100 * 2 = 200
+Network simulation:
+Outputs: 1 1 0 0 1 0 0 0 
+Next state:
+
+# 101 * 2 = 202
+Network simulation:
+Outputs: 1 1 0 0 1 0 1 0 
+Next state:
+
+# 102 * 2 = 204
+Network simulation:
+Outputs: 1 1 0 0 1 1 0 0 
+Next state:
+
+# 103 * 2 = 206
+Network simulation:
+Outputs: 1 1 0 0 1 1 1 0 
+Next state:
+
+# 104 * 2 = 208
+Network simulation:
+Outputs: 1 1 0 1 0 0 0 0 
+Next state:
+
+# 105 * 2 = 210
+Network simulation:
+Outputs: 1 1 0 1 0 0 1 0 
+Next state:
+
+# 106 * 2 = 212
+Network simulation:
+Outputs: 1 1 0 1 0 1 0 0 
+Next state:
+
+# 107 * 2 = 214
+Network simulation:
+Outputs: 1 1 0 1 0 1 1 0 
+Next state:
+
+# 108 * 2 = 216
+Network simulation:
+Outputs: 1 1 0 1 1 0 0 0 
+Next state:
+
+# 109 * 2 = 218
+Network simulation:
+Outputs: 1 1 0 1 1 0 1 0 
+Next state:
+
+# 110 * 2 = 220
+Network simulation:
+Outputs: 1 1 0 1 1 1 0 0 
+Next state:
+
+# 111 * 2 = 222
+Network simulation:
+Outputs: 1 1 0 1 1 1 1 0 
+Next state:
+
+# 112 * 2 = 224
+Network simulation:
+Outputs: 1 1 1 0 0 0 0 0 
+Next state:
+
+# 113 * 2 = 226
+Network simulation:
+Outputs: 1 1 1 0 0 0 1 0 
+Next state:
+
+# 114 * 2 = 228
+Network simulation:
+Outputs: 1 1 1 0 0 1 0 0 
+Next state:
+
+# 115 * 2 = 230
+Network simulation:
+Outputs: 1 1 1 0 0 1 1 0 
+Next state:
+
+# 116 * 2 = 232
+Network simulation:
+Outputs: 1 1 1 0 1 0 0 0 
+Next state:
+
+# 117 * 2 = 234
+Network simulation:
+Outputs: 1 1 1 0 1 0 1 0 
+Next state:
+
+# 118 * 2 = 236
+Network simulation:
+Outputs: 1 1 1 0 1 1 0 0 
+Next state:
+
+# 119 * 2 = 238
+Network simulation:
+Outputs: 1 1 1 0 1 1 1 0 
+Next state:
+
+# 120 * 2 = 240
+Network simulation:
+Outputs: 1 1 1 1 0 0 0 0 
+Next state:
+
+# 121 * 2 = 242
+Network simulation:
+Outputs: 1 1 1 1 0 0 1 0 
+Next state:
+
+# 122 * 2 = 244
+Network simulation:
+Outputs: 1 1 1 1 0 1 0 0 
+Next state:
+
+# 123 * 2 = 246
+Network simulation:
+Outputs: 1 1 1 1 0 1 1 0 
+Next state:
+
+# 124 * 2 = 248
+Network simulation:
+Outputs: 1 1 1 1 1 0 0 0 
+Next state:
+
+# 125 * 2 = 250
+Network simulation:
+Outputs: 1 1 1 1 1 0 1 0 
+Next state:
+
+# 126 * 2 = 252
+Network simulation:
+Outputs: 1 1 1 1 1 1 0 0 
+Next state:
+
+# 127 * 2 = 254
+Network simulation:
+Outputs: 1 1 1 1 1 1 1 0 
+Next state:
+
