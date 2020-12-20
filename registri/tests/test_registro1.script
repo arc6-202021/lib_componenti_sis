@@ -1,5 +1,5 @@
-simulate 0
+sim 0
 print_state
 
-simulate 1
+sim 1
 print_state

@@ -91,21 +91,22 @@ def v_to_str(v):
 def gen_simulations(n, print_state=True, start=0, endbefore=None):
     """
     Generatore di comandi simulate e print_state per tutte le combinazioni di n bit.
+    > Nota: sim e simulate sono lo stesso comando. sim e' la forma abbreviata.
 
     Esempio:
     >>> for combination in gen_simulations(2):
             print(combination)
 
-    simulate 0 0
+    sim 0 0
     print_state
 
-    simulate 0 1
+    sim 0 1
     print_state
 
-    simulate 1 0
+    sim 1 0
     print_state
 
-    simulate 1 1
+    sim 1 1
     print_state
 
     :param int n: numero di bit
@@ -114,7 +115,7 @@ def gen_simulations(n, print_state=True, start=0, endbefore=None):
     :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
     """
     for i in n_bits(n, start, endbefore):
-        cmd_simulate = "simulate " + v_to_str(add_spaces_between(i)) + "\n"
+        cmd_simulate = "sim " + v_to_str(add_spaces_between(i)) + "\n"
         cmd_print_state = "print_state\n\n"
 
         command_combination = cmd_simulate
