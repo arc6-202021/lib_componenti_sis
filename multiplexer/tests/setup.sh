@@ -19,3 +19,10 @@ if [ $f = "mux8i8b.blif" ] ; then
     python3 $SCRIPTDIR/../../test_generator.py 67 --simulate --noprintstate --endnum 5000000 > $SCRIPTDIR/test_mux8i8b.script
 
 fi
+
+if [ $f = "mux2i16b.blif" ] ; then
+
+    python3 $SCRIPTDIR/../../test_generator.py 33 --mux --ninputs 2 --noprintstate --endnum 5000000 > $SCRIPTDIR/test_mux2i16b_correct_output.txt
+    python3 $SCRIPTDIR/../../test_generator.py 33 --simulate --noprintstate --endnum 5000000 > $SCRIPTDIR/test_mux2i16b.script
+
+fi
