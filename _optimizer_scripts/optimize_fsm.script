@@ -1,0 +1,82 @@
+echo "[START] minimizza stati e assegna codifica agli stati"
+
+echo ""
+echo "sis>print_stats"
+echo ""
+print_stats
+
+echo ""
+echo "sis>state_minimize stamina"
+echo ""
+state_minimize stamina
+
+echo ""
+echo "sis>state_assign jedi"
+echo""
+state_assign jedi
+echo ""
+
+echo "----------------------------------------------------"
+echo ""
+echo "[RUGGED] Minimizza usando script rugged"
+
+echo ""
+echo "sis>print_stats"
+echo ""
+print_stats
+
+echo ""
+echo "sis>reduce_depth"
+echo ""
+reduce_depth
+
+echo ""
+echo "sis>print_stats"
+echo ""
+print_stats
+
+echo ""
+echo "sis>source script.rugged"
+echo ""
+source script.rugged
+
+echo ""
+echo "sis>print_stats"
+echo ""
+print_stats
+
+echo ""
+echo "----------------------------------------------------"
+echo ""
+echo "[MAPPATURA] importa libreria synch.genlib e mappa per area"
+echo ""
+
+echo ""
+echo "sis>read_library synch.genlib"
+echo ""
+read_library synch.genlib
+
+echo ""
+echo "sis>print_stats"
+echo""
+print_stats
+
+echo ""
+echo "sis>map -m 0 -W -s"
+echo ""
+map -m 0 -W -s
+
+echo ""
+echo "sis>print_stats"
+echo ""
+print_stats
+
+echo ""
+echo "sis>print_delay"
+echo ""
+print_delay
+
+echo ""
+echo "sis>print_map_stats"
+echo ""
+print_map_stats
