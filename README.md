@@ -3,6 +3,8 @@
 
 Questo repository contiene file blif
 con componenti pronti per essere simulati su SIS.
+> Sono presenti anche file specifici dell'elaborato
+> di architettura degli elaboratori.
 
 Il repository contiene anche script e file di test.
 
@@ -20,28 +22,67 @@ Il repository contiene anche script e file di test.
 |![Tester sommatori](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20sommatori/badge.svg)|testa i sommatori: sommano due ingressi (e eventuale riporto in ingresso) e mette in uscita il risultato con eventuale riporto|
 |![Tester sottrattori](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20sottrattori/badge.svg)|testa i sottrattori: effettuano la differenza tra due ingressi e restituiscono il risultato <br> <blockquote><p>il bit meno siginificativo in uscita e' sempre 1. Questo bit non fa parte del risultato ed e' necessario per evitare warning di fanout di SIS</p></blockquote><blockquote><p>i sottrattori necessitano della porta not e del sommatore fulladder a 2 bit</p></blockquote>|
 
+Test specifici dell'elaborato:
+
+|Badge test|Descrizione|
+|-----|-----------|
+|![Tester FSM](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20FSM/badge.svg)|testa la macchina a stati finiti|
+|![Ottimizzatore FSM](https://github.com/arc6-202021/lib_componenti_sis/workflows/Ottimizzatore%20FSM/badge.svg)|ottimizza automaticamente la macchina a stati finiti|
+
 ## Descrizione
 
 Nel repository ci sono...
 
 ... le cartelle:
+* **_optimizer_scripts**: contiene script di ottimizzazione che possono essere importati da SIS
+* **_simulates**: contiene script che eseguono i comandi simulate per simulare le diverse combinazioni degli ingressi di un circuito
 * **.github** contiene file yml per controllare le dipendenze di github actions
-e una workflow per eseguire lo script Python blif_tester.py
-    > Il workflow scarica il repository, installa SIS e Python e infine esegue lo script python di test
-* **porte_logiche** con le 7 porte logiche + script di test e output corretti
-* **registri** contiene registri + script di test e output corretti
-* **sommatori** contiene fulladder + script di test e output corretti
-* **sottrattori** mancano gli script di test e i file di output corretti
+e diverse workflow per eseguire gli script Python blif_tester.py e fsm_optimizer.py
+    > I workflow che eseguono blif_tester.py scaricano il repository, installano SIS e Python e infine eseguono lo script Python di test
+    > per controntare i risultati ottenuti dalle simulazioni con i risultati attesi
+
+    > Il workflow che esegue fsm_optimizer.py scarica il repository, installa Python e SIS, esegue lo script e infine carica
+    > come artifact il file di log e il file blif ottimizzato della fsm
+* **comparatori**: contiene i comparatori e output corretti
+* **fsm**: contiene il file della macchina a stati finiti specifica dell'elaborato
+* **maggiore**: contiene circuiti che verificano se il primo ingresso e' maggiore del secondo e i relativi output corretti
+* **minoreuguale**: contiene circuiti che verificano se il primo ingresso e' minore uguale del secondo e i relativi output corretti
+* **multiplexer**: contiene multiplexer e output corretti
+* **porte_logiche** contiene le 7 porte logiche e output corretti
+* **registri** contiene registri e output corretti
+* **shiftersx**: contiene shifter che moltiplicano per due l'ingresso
+* **sommatori** contiene fulladder e output corretti
+* **sottrattori** contiene sottrattori e i file di output corretti
 
 ... gli script python:
-* **blif_tester.py**: entra nelle cartelle e cerca i file blif e una cartella "tests".
+* **blif_tester.py**: di default entra nelle cartelle e cerca i file blif e una cartella "tests".
 Quando trova file blif cerca nella cartella tests
 il file di test dei singoli file blif (chiamati ```test_<nomefileblif>.script```)
 e l'output atteso dalla simulazione (chiamati ```test_<nomefileblif>_correct_output.txt```)
-> Nelle cartelle sono presenti anche i file ```blif_tester_conf.ini``` 
-> (usati per definire cosa occorre testare per ogni sottogruppo di componenti) 
-> e i file ```setup.sh``` e ```teardown.sh```, script bash che vengono eseguiti
-> rispettivamente prima e dopo ogni test di un file blif
+oppure un file di configurazione chiamato ```blif_tester_conf.ini``` (questo ha priorita' sui file ```.script```)
+> Nelle cartelle sono presenti anche i file ```blif_tester_conf.ini```.
+> Sono usati per definire cosa occorre testare per ogni componente appartenente a quella categoria di componenti
+> e, opzionalmente, per indicare il percorso degli script di simulate e di output corretto.
+> 
+> Se entrambe i percorsi non vengono specificati verra' cercati i file ```test_<nomefileblif>.script```
+> e ```test_<nomefileblif>_correct_output.txt```.
+>
+> Combinazioni ibride (file di simulate e percorso in configurazione del file di output atteso o viceversa )
+> non sono permesse.
+
+> Nelle cartelle sono presenti anche i file ```setup.sh``` e ```teardown.sh```, script bash che vengono eseguiti
+> rispettivamente prima e dopo ogni test di un file blif.
+
+> Nelle cartelle sono presenti anche i file ```setupcategory.sh``` e ```teardowncategory.sh```, script bash che
+> vengono eseguiti rispettivamente all'inizio e alla fine dei test di quella categoria di componenti.
+
+* **fsm_optimizer.py**: si occupa di ottimizzare la macchina a stati finiti contenuta nella cartella ```fsm```
+> Lo script copia il file blif diverse volte, esegue ottimizzazioni medianti SIS e lo script nella cartella ```_optimizer_scripts```
+> sulle copie e sulle copie delle copie (questo passaggio viene eseguito piu' volte) e infine sceglie la macchina a stati finiti piu' ottimizzata per area.
 
 * **test_generator.py**: contiene funzioni che possono automatizzare la creazione dei
 file ```*correct_output.txt```
+
+... lo script bash:
+* **git_chmod_bash.sh**: si occupa di cercare tutti gli script bash nelle sottocartelle e ad indicare
+a git che i file sono eseguibili.
