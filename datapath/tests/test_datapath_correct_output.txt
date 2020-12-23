@@ -1,0 +1,14 @@
+# voglio 10 euro e la banca ne ha 40, fallisce perche' 10 non e' minore di 40/4
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0
+Next state: 
+
+# voglio 10 euro e la banca ne ha 41, successo, la banca mi da 10 euro e CHECK_OK = 1
+Network simulation:
+Outputs: 0 0 0 0 0 0 1 0 1 0 1
+Next state: 
+
+# voglio 10 euro, la banca ne ha 41 e CHECK_DISPONIBILITA = 0, fallisce (bancomat bloccato/non inserito/pin corretto completo non inserito/...)
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0
+Next state: 
