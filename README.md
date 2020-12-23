@@ -28,6 +28,7 @@ Test specifici dell'elaborato:
 |-----|-----------|
 |![Tester FSM](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20FSM/badge.svg)|testa la macchina a stati finiti|
 |![Ottimizzatore FSM](https://github.com/arc6-202021/lib_componenti_sis/workflows/Ottimizzatore%20FSM/badge.svg)|ottimizza automaticamente la macchina a stati finiti|
+|![Tester datapath](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20datapath/badge.svg)|testa il datapath|
 
 ## Descrizione
 
@@ -44,6 +45,7 @@ e diverse workflow per eseguire gli script Python blif_tester.py e fsm_optimizer
     > Il workflow che esegue fsm_optimizer.py scarica il repository, installa Python e SIS, esegue lo script e infine carica
     > come artifact il file di log e il file blif ottimizzato della fsm
 * **comparatori**: contiene i comparatori e output corretti
+* **datapath**: contiene il file del datapath specifico dell'elaborato
 * **fsm**: contiene il file della macchina a stati finiti specifica dell'elaborato
 * **maggiore**: contiene circuiti che verificano se il primo ingresso e' maggiore del secondo e i relativi output corretti
 * **minoreuguale**: contiene circuiti che verificano se il primo ingresso e' minore uguale del secondo e i relativi output corretti
