@@ -49,43 +49,13 @@ def binnotation2bits(binary, n, ispositive=True):
     :param bool ispositive: True indica che il numero e' positivo (altrimenti si fa padding con '1')
     :return str str_bin: stringa con il numero binario
     """
-    str_bin = str(binary).lstrip("-").lstrip("0b")
-    while len(str_bin) < n:
-        if ispositive:
-            str_bin = "0" + str_bin
-        else:
-            str_bin = "1" + str_bin
+    str_bin = binary.replace("0b", "")
+    if ispositive:
+        str_bin = str_bin.rjust(n, "0")
+    else:
+        str_bin = str_bin.rjust(n, "1")
     
     return str_bin
-
-
-def add_spaces_between(v):
-    """
-    Restituisce una lista con gli elementi
-    della lista/stringa v separati fra di loro da uno spazio " ".
-    :param (list/str) v: stringa o lista
-    :return list res: lista con gli elementi di v separati da elementi di spazio (" ")
-    """
-    res = []
-    for el in v:
-        res.append(el)
-        res.append(" ")
-
-    return res
-
-
-def v_to_str(v):
-    """
-    Restituisce una stringa data dalla concatenazione
-    degli elementi della lista v.
-    :param list v: lista
-    :return str string: stringa con elementi di v concatenati
-    """
-    string = ""
-    for el in v:
-        string += str(el)
-
-    return string
 
 
 def gen_simulations(n, print_state=True, start=0, endbefore=None):
@@ -115,7 +85,7 @@ def gen_simulations(n, print_state=True, start=0, endbefore=None):
     :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
     """
     for i in n_bits(n, start, endbefore):
-        cmd_simulate = "sim " + v_to_str(add_spaces_between(i)) + "\n"
+        cmd_simulate = "sim " + i.replace("", " ")[1: -1] + "\n"
         cmd_print_state = "print_state\n\n"
 
         command_combination = cmd_simulate
@@ -180,7 +150,7 @@ def gen_adder_output(nbit, start=0, endbefore=None):
         int_b = int(b, 2)
 
         sum_res = int_cin + int_a + int_b
-        bin_sumres = bin(sum_res)
+        bin_sumres = str(bin(sum_res))
 
         bin_sumres = binnotation2bits(bin_sumres, input_len + 1)
 
@@ -194,8 +164,8 @@ def gen_adder_output(nbit, start=0, endbefore=None):
 
         comment = f"# {a} + {b} + {cin} = {o}, riporto {cout} \n"
         netssim = "Network simulation:\n"
-        outputs = "Outputs: " + v_to_str(add_spaces_between(sim_out)) + "\n"
-        nxstate= "Next state:\n"
+        outputs = "Outputs: " + sim_out.replace("", " ")[1: -1] + "\n"
+        nxstate= "Next state:\n\n"
 
         fulloutput = comment + netssim + outputs + nxstate
         yield fulloutput
@@ -268,7 +238,7 @@ def gen_sub_output(nbit, start=0, endbefore=None):
             print("risultato senza overflow: ", of_sub_res)
 
         # 1 --> 01
-        bin_subres = bin(twos_complement(of_sub_res, input_len))
+        bin_subres = str(bin(twos_complement(of_sub_res, input_len)))
         padded_subres = binnotation2bits(bin_subres, input_len, of_sub_res >= 0)
         
         if boold:
@@ -279,33 +249,12 @@ def gen_sub_output(nbit, start=0, endbefore=None):
 
         comment = f"# {a} - {b} = {padded_subres}\n"
         netssim = "Network simulation:\n"
-        outputs = "Outputs: " + v_to_str(add_spaces_between(padded_subres)) + "1\n"
-        nxstate= "Next state:\n"
+        outputs = "Outputs: " + padded_subres.replace("", " ")[1: -1] + "1\n"
+        nxstate= "Next state:\n\n"
 
         fulloutput = comment + netssim + outputs + nxstate
 
         yield fulloutput
-
-
-def divide_per_nels(string, n_el):
-    """
-    Suddivide una stringa ogni n_el caratteri.
-
-    :param str string: stringa da suddividere
-    :param int n_el: numero di elementi per stringa nell'output
-    :return list res: lista di stringhe
-    """
-    res = []
-    el_string = ""
-    for i, char in enumerate(string, 1):
-        if i % n_el == 0:
-            el_string += char
-            res.append(el_string)
-            el_string = ""
-        else:
-            el_string += char
-    
-    return res
 
 
 def invert(bit_string):
@@ -349,23 +298,16 @@ def gen_mux_output(ninputs, nbit, start=0, endbefore=None):
         
         if boold:
             print("selettore, inputs, lunghezza per input: ", selector, " ", inputs, " ", input_len)
-
-        v_inputs = divide_per_nels(inputs, input_len)
-
-        if boold:
-            print("Input ottenuti:")
-            for i in v_inputs:
-                print("* " + i)
         
         int_selector = int(selector, 2)
-        selected_input = v_inputs[int_selector]
+        selected_input = inputs[int_selector*input_len:int_selector*input_len+input_len]
 
         if boold:
             print("Input selezionato: ", selected_input)
 
         comment = "\n"
         netssim = "Network simulation:\n"
-        outputs = "Outputs: " + v_to_str(add_spaces_between(selected_input)) + "\n"
+        outputs = "Outputs: " + selected_input.replace("", " ")[1: -1] + "\n"
         nxstate= "Next state:\n"
 
         fulloutput = comment + netssim + outputs + nxstate
@@ -392,14 +334,14 @@ def gen_shiftersx_output(leninput, nbit, start=0, endbefore=None):
         times2_input = int_input * 2
         
         # 6 in binario e' 110, in lunghezza 3+1 -> 0110
-        bin_output = binnotation2bits(bin(times2_input), leninput+1)
+        bin_output = binnotation2bits(str(bin(times2_input)), leninput+1)
 
         if boold:
             print("Output: ", bin_output)
 
         comment = "# {} * 2 = {}\n".format(int_input, times2_input)
         netssim = "Network simulation:\n"
-        outputs = "Outputs: " + v_to_str(add_spaces_between(bin_output)) + "\n"
+        outputs = "Outputs: " + bin_output.replace("", " ")[1: -1] + "\n"
         nxstate= "Next state:\n\n"
 
         fulloutput = comment + netssim + outputs + nxstate
@@ -434,7 +376,7 @@ def gen_comparator_output(nbit, start=0, endbefore=None):
 
         comment = "# {} == {} ?\n".format(int_a, int_b)
         netssim = "Network simulation:\n"
-        outputs = "Outputs: " + v_to_str(add_spaces_between(bin_output)) + "\n"
+        outputs = "Outputs: " + bin_output.replace("", " ")[1: -1] + "\n"
         nxstate= "Next state:\n\n"
 
         fulloutput = comment + netssim + outputs + nxstate
@@ -468,7 +410,7 @@ def gen_greaterthan_output(nbit, start=0, endbefore=None):
 
         comment = "# {} > {} ?\n".format(int_a, int_b)
         netssim = "Network simulation:\n"
-        outputs = "Outputs: " + v_to_str(add_spaces_between(bin_output)) + "\n"
+        outputs = "Outputs: " + bin_output.replace("", " ")[1: -1] + "\n"
         nxstate= "Next state:\n\n"
 
         fulloutput = comment + netssim + outputs + nxstate
@@ -502,7 +444,7 @@ def gen_lowerequal_output(nbit, start=0, endbefore=None):
 
         comment = "# {} <= {} ?\n".format(int_a, int_b)
         netssim = "Network simulation:\n"
-        outputs = "Outputs: " + v_to_str(add_spaces_between(bin_output)) + "\n"
+        outputs = "Outputs: " + bin_output.replace("", " ")[1: -1] + "\n"
         nxstate= "Next state:\n\n"
 
         fulloutput = comment + netssim + outputs + nxstate
