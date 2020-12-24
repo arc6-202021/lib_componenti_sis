@@ -1,0 +1,209 @@
+.model Controllore
+.inputs BANCOMAT_INSERITO CIFRA4 CIFRA3 CIFRA2 CIFRA1 CASH_OK
+.outputs REINSERIRE_CODICE ABILITAZIONE_EROGAZIONE BLOCCO_BANCOMAT \
+CHECK_DISPONIBILITA
+.default_input_arrival 0.00 0.00 
+.default_output_required 0.00 0.00 
+.default_input_drive 0.20 0.20 
+.default_output_load 1.00 
+.default_max_input_load 999.00 
+.latch    [548] LatchOut_v6 re NIL 1
+.latch    [546] LatchOut_v7 re NIL 0
+.latch    [547] LatchOut_v8 re NIL 1
+.latch    [545] LatchOut_v9 re NIL 0
+.start_kiss
+.i 6
+.o 4
+.p 31
+.s 9
+.r INSERIMENTO
+0----- INSERIMENTO INSERIMENTO 0000
+1----- INSERIMENTO CODICE1 ----
+----0- CODICE1 ERRORE1 1000
+---1-- CODICE1 ERRORE1 1000
+--0--- CODICE1 ERRORE1 1000
+-1---- CODICE1 ERRORE1 1000
+-0101- CODICE1 CODICE2 0000
+----0- ERRORE1 ERRORE2 1000
+---1-- ERRORE1 ERRORE2 1000
+--0--- ERRORE1 ERRORE2 1000
+-1---- ERRORE1 ERRORE2 1000
+-0101- ERRORE1 CODICE2 0000
+----0- CODICE2 ERRORE1 1000
+---1-- CODICE2 ERRORE1 1000
+--0--- CODICE2 ERRORE1 1000
+-1---- CODICE2 ERRORE1 1000
+-0101- CODICE2 CODICE3 0000
+----0- ERRORE2 BLOCCO 0010
+---1-- ERRORE2 BLOCCO 0010
+--0--- ERRORE2 BLOCCO 0010
+-1---- ERRORE2 BLOCCO 0010
+-0101- ERRORE2 CODICE2 0000
+----1- CODICE3 ERRORE1 1000
+---1-- CODICE3 ERRORE1 1000
+--1--- CODICE3 ERRORE1 1000
+-1---- CODICE3 ERRORE1 1000
+-0000- CODICE3 RICHIESTA 0001
+------ BLOCCO BLOCCO --1-
+-----0 RICHIESTA RICHIESTA 0001
+-----1 RICHIESTA EROGAZIONE 010-
+------ EROGAZIONE INSERIMENTO ----
+.end_kiss
+.latch_order LatchOut_v6 LatchOut_v7 LatchOut_v8 LatchOut_v9
+.code INSERIMENTO 1010
+.code CODICE1 1110
+.code ERRORE1 0111
+.code CODICE2 0011
+.code ERRORE2 0001
+.code CODICE3 1111
+.code BLOCCO 1011
+.code RICHIESTA 0101
+.code EROGAZIONE 0100
+.names LatchOut_v7 [650]
+0 1
+.names CIFRA4 CIFRA2 [652]
+1- 1
+-1 1
+.names CIFRA3 CIFRA1 [655]
+0- 1
+-0 1
+.names [652] [655] [520]
+00 1
+.names LatchOut_v6 [656]
+0 1
+.names LatchOut_v9 [657]
+0 1
+.names LatchOut_v8 [520] [656] [657] [786]
+00-- 1
+--00 1
+.names [650] [786] [747]
+0- 1
+-0 1
+.names LatchOut_v7 LatchOut_v9 [659]
+0- 1
+-0 1
+.names [659] [771]
+0 1
+.names [655] [656] [645]
+00 1
+.names [656] [655] [652] LatchOut_v9 [782]
+11-- 1
+--11 1
+.names [771] [645] [782] LatchOut_v8 [613]
+0-0- 1
+-00- 1
+0--0 1
+-0-0 1
+.names CIFRA3 CIFRA1 [652] [656] [543]
+0000 1
+.names LatchOut_v8 [651]
+0 1
+.names [771] [543] [651] [751]
+0-- 1
+-00 1
+.names [652] [751] [655] [518]
+00- 1
+0-0 1
+.names LatchOut_v7 LatchOut_v8 [658]
+0- 1
+-0 1
+.names [613] [518] [658] REINSERIRE_CODICE
+0-- 1
+-00 1
+.names REINSERIRE_CODICE LatchOut_v7 [651] [531]
+000 1
+.names [531] [657] [658] [593]
+00- 1
+0-0 1
+.names [747] [593] [867]
+0- 1
+-0 1
+.names [867] [548]
+1 1
+.names [658] REINSERIRE_CODICE [655] [528]
+000 1
+.names [528] REINSERIRE_CODICE LatchOut_v6 [583]
+00- 1
+0-0 1
+.names [771] [583] [869]
+0- 1
+-0 1
+.names [747] [869] REINSERIRE_CODICE [867] [656] LatchOut_v8 [670]
+111--- 1
+---111 1
+.names [650] BANCOMAT_INSERITO [672]
+0- 1
+-0 1
+.names LatchOut_v9 [672] [869] REINSERIRE_CODICE [673]
+00-- 1
+--00 1
+.names [670] [673] [868]
+1- 1
+-1 1
+.names [868] [546]
+1 1
+.names [869] [547]
+1 1
+.names [771] [651] CASH_OK [744]
+0-- 1
+-0- 1
+--0 1
+.names [867] [730]
+0 1
+.names [744] LatchOut_v9 [869] [730] [870]
+11-- 1
+--11 1
+.names [870] [545]
+1 1
+.names [744] ABILITAZIONE_EROGAZIONE
+0 1
+.names [747] BLOCCO_BANCOMAT
+0 1
+.names [751] CHECK_DISPONIBILITA
+0 1
+.exdc 
+.inputs BANCOMAT_INSERITO CIFRA4 CIFRA3 CIFRA2 CIFRA1 CASH_OK LatchOut_v6 \
+LatchOut_v7 LatchOut_v8 LatchOut_v9
+.outputs [548] [546] [547] [545] REINSERIRE_CODICE ABILITAZIONE_EROGAZIONE \
+BLOCCO_BANCOMAT CHECK_DISPONIBILITA
+.names LatchOut_v6 LatchOut_v7 LatchOut_v8 LatchOut_v9 [548]
+1-0- 1
+00-0 1
+0-10 1
+.names LatchOut_v6 LatchOut_v7 LatchOut_v8 LatchOut_v9 [546]
+1-0- 1
+00-0 1
+0-10 1
+.names LatchOut_v6 LatchOut_v7 LatchOut_v8 LatchOut_v9 [547]
+1-0- 1
+00-0 1
+0-10 1
+.names LatchOut_v6 LatchOut_v7 LatchOut_v8 LatchOut_v9 [545]
+1-0- 1
+00-0 1
+0-10 1
+.names BANCOMAT_INSERITO LatchOut_v6 LatchOut_v7 LatchOut_v8 LatchOut_v9 \
+REINSERIRE_CODICE
+-1-0- 1
+-0--0 1
+110-- 1
+-10-1 1
+.names BANCOMAT_INSERITO LatchOut_v6 LatchOut_v7 LatchOut_v8 LatchOut_v9 \
+ABILITAZIONE_EROGAZIONE
+-1-0- 1
+-0--0 1
+110-- 1
+-10-1 1
+.names BANCOMAT_INSERITO LatchOut_v6 LatchOut_v7 LatchOut_v8 LatchOut_v9 \
+BLOCCO_BANCOMAT
+-1-0- 1
+-0--0 1
+1-0-0 1
+.names BANCOMAT_INSERITO CASH_OK LatchOut_v6 LatchOut_v7 LatchOut_v8 \
+LatchOut_v9 CHECK_DISPONIBILITA
+--1-0- 1
+--0--0 1
+-1-10- 1
+--10-1 1
+1--0-0 1
+.end
