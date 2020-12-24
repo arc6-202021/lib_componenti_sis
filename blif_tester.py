@@ -22,6 +22,8 @@ import re
 import subprocess
 import time
 import configparser
+import shutil
+import gzip
 
 boold = False
 success = True  # used to make the CI fail when success == False
@@ -48,10 +50,22 @@ def simulate(test_directory, blif_file, sis_simulation_input, sis_simulation_out
     :rtype: int
     """
     
+    #pylint: disable=unused-variable
+    filename, file_extension = os.path.splitext(sis_simulation_input)
+
+    parsed_sim_input = sis_simulation_input
+
+    if file_extension == ".gz":
+        parsed_sim_input = sis_simulation_input.replace(".gz", "")
+
+        with gzip.open(sis_simulation_input, 'rb') as f_in:
+            with open(parsed_sim_input, 'wb') as f_out:
+                shutil.copyfileobj(f_in, f_out)
+
     sis_script = test_directory + "/exec_test.txt"
     sis_simulation_script = "set sisout " + sis_simulation_output + "\n" + \
                             "read_blif " + blif_file + "\n" + \
-                            "source " + sis_simulation_input + "\n" + \
+                            "source " + parsed_sim_input + "\n" + \
                             "read_library synch.genlib\n" + \
                             "map -m 0 -W\n" + \
                             "print_map_stats\n" + \
@@ -96,6 +110,18 @@ def compare(sis_simulation_output, sis_correct_outputs, config_path, t_flog):
 
     compare_result = {"success": True}
 
+    #pylint: disable=unused-variable
+    filename, file_extension = os.path.splitext(sis_correct_outputs)
+
+    parsed_sis_correct_outputs = sis_correct_outputs
+
+    if file_extension == ".gz":
+        parsed_sis_correct_outputs = sis_correct_outputs.replace(".gz", "")
+
+        with gzip.open(sis_correct_outputs, 'rb') as f_in:
+            with open(parsed_sis_correct_outputs, 'wb') as f_out:
+                shutil.copyfileobj(f_in, f_out)
+
     try:
         # ottieni impostazioni del file configurazione
         configs = parse_config(config_path)
@@ -103,7 +129,7 @@ def compare(sis_simulation_output, sis_correct_outputs, config_path, t_flog):
         if configs["correct"]:
             # apri il file con gli output corretti, recupera gli output 
             # (righe che iniziano con "Outputs:") e salvali in correct_outputs
-            with open(sis_correct_outputs, "r") as infile:
+            with open(parsed_sis_correct_outputs, "r") as infile:
                 for line in infile:
                     if output_pattern.match(line) and configs["check_output"]:
                         correct_data.append(line.lstrip("Outputs: ").replace(" ", "").strip())

@@ -1,8 +1,0 @@
-# voglio 10 euro e la banca ne ha 40, fallisce perche' 10 non e' minore di 40/4
-sim 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 1
-
-# voglio 10 euro e la banca ne ha 41, successo
-sim 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 1 1
-
-# voglio 10 euro, la banca ne ha 41 e CHECK_DISPONIBILITA = 0, fallisce (bancomat bloccato/non inserito/pin corretto completo non inserito/...)
-sim 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 1 0
