@@ -20,7 +20,7 @@ jobs:
         run: echo -e "\n[PYTHON VERSION]\n" && python3 --version && echo -e "\n\n[SIS VERSION]\n" && (sis -v || true)
       - name: Execute fsm_optimizer
         id: optimize
-        run: export SAVEOPT=$(python3 fsm_optimizer.py) && echo "::set-env name=SAVEOPT::$SAVEOPT"
+        run: export SAVEOPT=$(python3 fsm_optimizer.py) && echo "::set-output name=SAVEOPT::$SAVEOPT"
       - name: Archive optimized blif
         if: steps.optimize.outputs.SAVEOPT == 1
         uses: actions/upload-artifact@v2
