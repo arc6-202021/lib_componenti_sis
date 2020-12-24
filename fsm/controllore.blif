@@ -15,7 +15,7 @@
 
 #parte relativa all'inserimento del bancomat
 0----- INSERIMENTO INSERIMENTO 0000
-1----- INSERIMENTO CODICE1 ----
+1----- INSERIMENTO CODICE1 0000
 
 #parte relativa all'inserimento del pin
 #tutte le volte che si inserisce una cifra sbagliata si riparte dall'inizio
