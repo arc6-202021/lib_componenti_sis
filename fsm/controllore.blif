@@ -49,14 +49,14 @@
 -1---- ERRORE2 BLOCCO 0010
 -0101- ERRORE2 CODICE2 0000
 #blocco dal quale non è più possibile uscire
------- BLOCCO BLOCCO --1-
+------ BLOCCO BLOCCO 0010
 
 #parte relativa al controllo della quantità di denaro
 -----0 RICHIESTA RICHIESTA 0001 
------1 RICHIESTA EROGAZIONE 010- 
+-----1 RICHIESTA EROGAZIONE 0100 
 
 #transizione dal'ultimo stato allo stato iniziale
------- EROGAZIONE INSERIMENTO ---- 
+------ EROGAZIONE INSERIMENTO 0000 
 
 .end_kiss
 
