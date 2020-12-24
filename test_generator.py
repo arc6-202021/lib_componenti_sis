@@ -13,7 +13,7 @@ bit = 17
 boold = False
 
 
-def n_bits(n, start=0, endbefore=None):
+def n_bits(n, start=0, endbefore=None, step=None):
     """
     Generatore di combinazioni di n bit.
 
@@ -33,6 +33,12 @@ def n_bits(n, start=0, endbefore=None):
     if endbefore:
         if endbefore < 2**n:
             range_combs = range(start, endbefore)
+            if step:
+                range_combs = range(start, endbefore, step)
+
+    else:
+        if step:
+            range_combs = range(start, 2**n, step)
 
     for i in range_combs:
         binary = str(bin(i))
@@ -58,7 +64,7 @@ def binnotation2bits(binary, n, ispositive=True):
     return str_bin
 
 
-def gen_simulations(n, print_state=True, start=0, endbefore=None):
+def gen_simulations(n, print_state=True, start=0, endbefore=None, steps=None):
     """
     Generatore di comandi simulate e print_state per tutte le combinazioni di n bit.
     > Nota: sim e simulate sono lo stesso comando. sim e' la forma abbreviata.
@@ -84,7 +90,7 @@ def gen_simulations(n, print_state=True, start=0, endbefore=None):
     :param int start: numero che corrisponde alla combinazione iniziale
     :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
     """
-    for i in n_bits(n, start, endbefore):
+    for i in n_bits(n, start, endbefore, steps):
         cmd_simulate = "sim " + i.replace("", " ")[1: -1] + "\n"
         cmd_print_state = "print_state\n\n"
 
@@ -96,7 +102,7 @@ def gen_simulations(n, print_state=True, start=0, endbefore=None):
         yield command_combination
 
 
-def gen_registry_networkstate(n, start=0, endbefore=None):
+def gen_registry_networkstate(n, start=0, endbefore=None, steps=None):
     """
     Generatore di stati attuali esatti per i registri.
 
@@ -120,7 +126,7 @@ def gen_registry_networkstate(n, start=0, endbefore=None):
     :param int start: numero che corrisponde alla combinazione iniziale
     :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
     """
-    for i in n_bits(n, start, endbefore):
+    for i in n_bits(n, start, endbefore, steps):
         comment = "# " + i
         network_state = "\nNetwork state: " + i
 
@@ -128,14 +134,14 @@ def gen_registry_networkstate(n, start=0, endbefore=None):
         yield command_combination
 
 
-def gen_adder_output(nbit, start=0, endbefore=None):
+def gen_adder_output(nbit, start=0, endbefore=None, steps=None):
     """
     Generatore di output esatto per i sommatori fulladder.
     :param int nbit: numero di bit totali in ingresso
     :param int start: numero che corrisponde alla combinazione iniziale
     :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
     """
-    for combination in n_bits(nbit, start, endbefore):
+    for combination in n_bits(nbit, start, endbefore, steps):
         # 110 -> cin = 0, a = 1 b = 1
         cin = combination[-1]
         input_len = int((len(combination)-1)/2)
@@ -190,7 +196,7 @@ def twos_complement(val, nbits):
     return val
 
 
-def gen_sub_output(nbit, start=0, endbefore=None):
+def gen_sub_output(nbit, start=0, endbefore=None, steps=None):
     """
     Generatore di output esatti per i sottrattori.
     > In outputs viene aggiunto un uno alla fine,
@@ -201,7 +207,7 @@ def gen_sub_output(nbit, start=0, endbefore=None):
     :param int start: numero che corrisponde alla combinazione iniziale
     :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
     """
-    for combination in n_bits(nbit, start, endbefore):
+    for combination in n_bits(nbit, start, endbefore, steps):
         # 1110 -> a = 11 b = 10
         input_len = int((len(combination))/2)
         a = combination[0:input_len]
@@ -272,7 +278,7 @@ def invert(bit_string):
     return res
 
 
-def gen_mux_output(ninputs, nbit, start=0, endbefore=None):
+def gen_mux_output(ninputs, nbit, start=0, endbefore=None, steps=None):
     """
     Generatore di output esatti per i multiplexer.
     
@@ -287,7 +293,7 @@ def gen_mux_output(ninputs, nbit, start=0, endbefore=None):
     :param int start: numero che corrisponde alla combinazione iniziale
     :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
     """
-    for combination in n_bits(nbit, start, endbefore):
+    for combination in n_bits(nbit, start, endbefore, steps):
         # 2 ingressi (e 3 bit) --> 1 bit di selettore
         selector = combination[0:int(math.log2(ninputs))]
 
@@ -315,7 +321,7 @@ def gen_mux_output(ninputs, nbit, start=0, endbefore=None):
         yield fulloutput
 
 
-def gen_shiftersx_output(leninput, nbit, start=0, endbefore=None):
+def gen_shiftersx_output(leninput, nbit, start=0, endbefore=None, steps=None):
     """
     Genera output corretti per gli shifter a sinistra.
 
@@ -324,7 +330,7 @@ def gen_shiftersx_output(leninput, nbit, start=0, endbefore=None):
     :param int start: numero che corrisponde alla combinazione iniziale
     :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
     """
-    for combination in n_bits(nbit, start, endbefore):
+    for combination in n_bits(nbit, start, endbefore, steps):
         
         if boold:
             print("input: ", combination)
@@ -349,7 +355,7 @@ def gen_shiftersx_output(leninput, nbit, start=0, endbefore=None):
         yield fulloutput
 
 
-def gen_comparator_output(nbit, start=0, endbefore=None):
+def gen_comparator_output(nbit, start=0, endbefore=None, steps=None):
     """
     Generatore di output esatti per i comparatori.
 
@@ -357,7 +363,7 @@ def gen_comparator_output(nbit, start=0, endbefore=None):
     :param int start: numero che corrisponde alla combinazione iniziale
     :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
     """
-    for combination in n_bits(nbit, start, endbefore):
+    for combination in n_bits(nbit, start, endbefore, steps):
         
         if boold:
             print("input: ", combination)
@@ -384,7 +390,7 @@ def gen_comparator_output(nbit, start=0, endbefore=None):
         yield fulloutput
 
 
-def gen_greaterthan_output(nbit, start=0, endbefore=None):
+def gen_greaterthan_output(nbit, start=0, endbefore=None, steps=None):
     """
     Generatore di output esatti per le funzioni maggiore.
 
@@ -392,7 +398,7 @@ def gen_greaterthan_output(nbit, start=0, endbefore=None):
     :param int start: numero che corrisponde alla combinazione iniziale
     :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
     """
-    for combination in n_bits(nbit, start, endbefore):
+    for combination in n_bits(nbit, start, endbefore, steps):
         
         if boold:
             print("input: ", combination)
@@ -418,7 +424,7 @@ def gen_greaterthan_output(nbit, start=0, endbefore=None):
         yield fulloutput
 
 
-def gen_lowerequal_output(nbit, start=0, endbefore=None):
+def gen_lowerequal_output(nbit, start=0, endbefore=None, steps=None):
     """
     Generatore di output esatti per le funzioni minore uguale.
 
@@ -426,7 +432,7 @@ def gen_lowerequal_output(nbit, start=0, endbefore=None):
     :param int start: numero che corrisponde alla combinazione iniziale
     :param (None, int) endbefore: numero che indica che la combinazione prima di endbefore e' l'ultima
     """
-    for combination in n_bits(nbit, start, endbefore):
+    for combination in n_bits(nbit, start, endbefore, steps):
         
         if boold:
             print("input: ", combination)
@@ -452,6 +458,40 @@ def gen_lowerequal_output(nbit, start=0, endbefore=None):
         yield fulloutput
 
 
+def gen_datapath_output(start=0, endbefore=None, steps=None):
+    """
+    Genera l'output per il datapath dell'elaborato
+    di architettura degli elaboratori.
+    """
+    for combination in n_bits(27, start, endbefore, steps):
+
+        int_req = int(combination[0:10], 2)
+        int_disp = int(combination[10:26], 2)
+        int_check = int(combination[26], 2)
+
+        if boold:
+            print("denaro richiesto: ", int_req)
+            print("denaro disponibile: ", int_disp)
+            print("check disponibilita': ", int_check)
+        
+        bin_output = "00000000000"
+
+        if int_check == 1 and int_req * 4 < int_disp:
+            bin_output = combination[0:10] + "1"
+
+        if boold:
+            print("Output: ", bin_output)
+
+        comment = "# {} * 4 < {} e check {} == 1 ?\n".format(int_req, int_disp, int_check)
+        netssim = "Network simulation:\n"
+        outputs = "Outputs: " + bin_output.replace("", " ")[1: -1] + "\n"
+        nxstate= "Next state:\n\n"
+
+        fulloutput = comment + netssim + outputs + nxstate
+        
+        yield fulloutput
+
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Automatizza la creazione dei test.')
@@ -466,16 +506,18 @@ if __name__ == "__main__":
     parser.add_argument('--comparator', action='store_true', default=False, help='indica di creare output corretti per testare i comparatori')
     parser.add_argument('--greater', action='store_true', default=False, help='indica di creare output corretti per testare la funzione maggiore')
     parser.add_argument('--lowerequal', action='store_true', default=False, help='indica di creare output corretti per testare la funzione minore uguale')
+    parser.add_argument('--datapath', action='store_true', default=False, help='indica di creare output corretti per testare il datapath dell\'elaborato')
     parser.add_argument('--ninputs', type=int, help='numero di input nel multiplexer')
     parser.add_argument('--leninput', type=int, help='numero di bit che rappresentano l\'input nei shifter')
     parser.add_argument('--startnum', type=int, default=0, help='numero da cui iniziare le combinazioni')
     parser.add_argument('--endnum', type=int, default=None, help='numero in cui forzare la fine delle combinazioni')
+    parser.add_argument('--steps', type=int, default=None, help='step saltati tra una combinazione ed un\'altra')
     args = parser.parse_args()
     
-    if not (args.simulate or args.registry or args.fulladder or args.subtractor or args.mux or args.shiftersx or args.comparator or args.greater or args.lowerequal):
+    if not (args.simulate or args.registry or args.fulladder or args.subtractor or args.mux or args.shiftersx or args.comparator or args.greater or args.lowerequal or args.datapath):
         print("ATTENZIONE: Una flag deve essere vera\n")
         parser.print_help()
-    elif (args.simulate + args.registry + args.fulladder + args.subtractor + args.mux + args.shiftersx + args.comparator + args.greater + args.lowerequal) > 1:
+    elif (args.simulate + args.registry + args.fulladder + args.subtractor + args.mux + args.shiftersx + args.comparator + args.greater + args.lowerequal + args.datapath) > 1:
         print("ATTENZIONE: Solo UNA flag deve essere vera\n")
         parser.print_help()
     else:
@@ -497,39 +539,43 @@ if __name__ == "__main__":
 
         elif args.mux and args.ninputs:
             # ottieni gli output dei multiplexer
-            for combination in gen_mux_output(args.ninputs, args.nbits, start=args.startnum, endbefore=args.endnum):
+            for combination in gen_mux_output(args.ninputs, args.nbits, start=args.startnum, endbefore=args.endnum, steps=args.steps):
                 print(combination, end="")
         
         elif args.shiftersx and args.leninput:
             # ottieni gli output del shifter a sinistra
-            for combination in gen_shiftersx_output(args.leninput, args.nbits, start=args.startnum, endbefore=args.endnum):
+            for combination in gen_shiftersx_output(args.leninput, args.nbits, start=args.startnum, endbefore=args.endnum, steps=args.steps):
                 print(combination, end="")
 
         elif args.simulate:
             print_state = not args.noprintstate
-            for combination in gen_simulations(args.nbits, print_state=print_state,start=args.startnum, endbefore=args.endnum):
+            for combination in gen_simulations(args.nbits, print_state=print_state,start=args.startnum, endbefore=args.endnum, steps=args.steps):
                 print(combination, end="")
 
         elif args.registry:
-            for combination in gen_registry_networkstate(args.nbits, start=args.startnum, endbefore=args.endnum):
+            for combination in gen_registry_networkstate(args.nbits, start=args.startnum, endbefore=args.endnum, steps=args.steps):
                 print(combination, end="")
 
         elif args.fulladder:
-            for combination in gen_adder_output(args.nbits, start=args.startnum, endbefore=args.endnum):
+            for combination in gen_adder_output(args.nbits, start=args.startnum, endbefore=args.endnum, steps=args.steps):
                 print(combination, end="")
 
         elif args.subtractor:
-            for combination in gen_sub_output(args.nbits, start=args.startnum, endbefore=args.endnum):
+            for combination in gen_sub_output(args.nbits, start=args.startnum, endbefore=args.endnum, steps=args.steps):
                 print(combination, end="")
         
         elif args.comparator:
-            for combination in gen_comparator_output(args.nbits, start=args.startnum, endbefore=args.endnum):
+            for combination in gen_comparator_output(args.nbits, start=args.startnum, endbefore=args.endnum, steps=args.steps):
                 print(combination, end="")
 
         elif args.greater:
-            for combination in gen_greaterthan_output(args.nbits, start=args.startnum, endbefore=args.endnum):
+            for combination in gen_greaterthan_output(args.nbits, start=args.startnum, endbefore=args.endnum, steps=args.steps):
                 print(combination, end="")
 
         elif args.lowerequal:
-            for combination in gen_lowerequal_output(args.nbits, start=args.startnum, endbefore=args.endnum):
+            for combination in gen_lowerequal_output(args.nbits, start=args.startnum, endbefore=args.endnum, steps=args.steps):
+                print(combination, end="")
+        
+        elif args.datapath:
+            for combination in gen_datapath_output(start=args.startnum, endbefore=args.endnum, steps=args.steps):
                 print(combination, end="")
