@@ -1,0 +1,15 @@
+# inserisci bancomat
+sim 1 0 0 0 0 0
+
+# inserisci pin 5
+sim 1 0 1 0 1 0
+
+# inserisci pin 5
+sim 1 0 1 0 1 0
+
+# inserisci pin 0
+sim 1 0 0 0 0 0
+
+# CHECK_OK, puoi erogare denaro
+sim 0 0 0 0 0 1
+

@@ -147,20 +147,28 @@ def compare(sis_simulation_output, sis_correct_outputs, config_path, t_flog):
             gate_count = 0
             # correct_data = correct_outputs[:] + correct_currentstates[:] + correct_nextstates[:]
 
+            network_simulation = True
+
             # apri l'output della simulazione e confronta
             with open(sis_simulation_output, "r") as infile:
                 for line in infile:
-                    if output_pattern.match(line) and configs["check_output"]:
+                    if "Network simulation:" in line.strip():
+                        network_simulation = True
+
+                    elif "STG simulation:" in line.strip():
+                        network_simulation = False
+
+                    elif output_pattern.match(line) and configs["check_output"] and network_simulation:
                         if line.lstrip("Outputs: ").replace(" ", "").strip() == correct_data[i]:
                             match += 1
                         i += 1
                     
-                    elif currentstate_pattern.match(line) and configs["check_currentstate"]:
+                    elif currentstate_pattern.match(line) and configs["check_currentstate"] and network_simulation:
                         if line.lstrip("Network state: ").replace(" ", "").strip() == correct_data[i]:
                             match += 1
                         i += 1
 
-                    elif nextstate_pattern.match(line) and configs["check_nextstate"]:
+                    elif nextstate_pattern.match(line) and configs["check_nextstate"] and network_simulation:
                         if line.lstrip("Next state: ").replace(" ", "").strip() == correct_data[i]:
                             match += 1
                         i += 1
