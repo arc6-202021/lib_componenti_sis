@@ -64,25 +64,25 @@ Quando trova file blif cerca nella cartella tests
 il file di test dei singoli file blif (chiamati ```test_<nomefileblif>.script```)
 e l'output atteso dalla simulazione (chiamati ```test_<nomefileblif>_correct_output.txt```)
 oppure un file di configurazione chiamato ```blif_tester_conf.ini``` (questo ha priorita' sui file ```.script```)
-> Nelle cartelle sono presenti anche i file ```blif_tester_conf.ini```.
-> Sono usati per definire cosa occorre testare per ogni componente appartenente a quella categoria di componenti
-> e, opzionalmente, per indicare il percorso degli script di simulate e di output corretto.
-> 
-> Se entrambe i percorsi non vengono specificati verra' cercati i file ```test_<nomefileblif>.script```
-> e ```test_<nomefileblif>_correct_output.txt```.
->
-> Combinazioni ibride (file di simulate e percorso in configurazione del file di output atteso o viceversa )
-> non sono permesse.
+    > Nelle cartelle sono presenti anche i file ```blif_tester_conf.ini```.
+    > Sono usati per definire cosa occorre testare per ogni componente appartenente a quella categoria di componenti
+    > e, opzionalmente, per indicare il percorso degli script di simulate e di output corretto.
+    > 
+    > Se entrambe i percorsi non vengono specificati verra' cercati i file ```test_<nomefileblif>.script```
+    > e ```test_<nomefileblif>_correct_output.txt```.
+    >
+    > Combinazioni ibride (file di simulate e percorso in configurazione del file di output atteso o viceversa )
+    > non sono permesse.
 
-> Nelle cartelle sono presenti anche i file ```setup.sh``` e ```teardown.sh```, script bash che vengono eseguiti
-> rispettivamente prima e dopo ogni test di un file blif.
+    > Nelle cartelle sono presenti anche i file ```setup.sh``` e ```teardown.sh```, script bash che vengono eseguiti
+    > rispettivamente prima e dopo ogni test di un file blif.
 
-> Nelle cartelle sono presenti anche i file ```setupcategory.sh``` e ```teardowncategory.sh```, script bash che
-> vengono eseguiti rispettivamente all'inizio e alla fine dei test di quella categoria di componenti.
+    > Nelle cartelle sono presenti anche i file ```setupcategory.sh``` e ```teardowncategory.sh```, script bash che
+    > vengono eseguiti rispettivamente all'inizio e alla fine dei test di quella categoria di componenti.
 
 * **fsm_optimizer.py**: si occupa di ottimizzare la macchina a stati finiti contenuta nella cartella ```fsm```
-> Lo script copia il file blif diverse volte, esegue ottimizzazioni medianti SIS e lo script nella cartella ```_optimizer_scripts```
-> sulle copie e sulle copie delle copie (questo passaggio viene eseguito piu' volte) e infine sceglie la macchina a stati finiti piu' ottimizzata per area.
+    > Lo script copia il file blif diverse volte, esegue ottimizzazioni medianti SIS e lo script nella cartella ```_optimizer_scripts```
+    > sulle copie e sulle copie delle copie (questo passaggio viene eseguito piu' volte) e infine sceglie la macchina a stati finiti piu' ottimizzata per area.
 
 * **test_generator.py**: contiene funzioni che possono automatizzare la creazione dei
 file ```*correct_output.txt```

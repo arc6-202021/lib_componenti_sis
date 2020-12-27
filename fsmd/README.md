@@ -9,6 +9,8 @@ Dove la fsm e' contenuta nella cartella [```fsm```](../fsm) e il datapath e' con
 > Tra la fsm e il datapath e' stato inserito un latch per evitare l'errore
 > ```"error: network contains a cycle"```
 
+![FSMD completa](images/project.svg)
+
 ## Requisiti
 
 Per simulare la FSMD e' necessario copiare la fsm ottimizzata e il datapath (con tutte le sue dipendenze) in questa directory.
