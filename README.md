@@ -29,6 +29,7 @@ Test specifici dell'elaborato:
 |![Tester FSM](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20FSM/badge.svg)|testa la macchina a stati finiti|
 |![Ottimizzatore FSM](https://github.com/arc6-202021/lib_componenti_sis/workflows/Ottimizzatore%20FSM/badge.svg)|ottimizza automaticamente la macchina a stati finiti|
 |![Tester datapath](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20datapath/badge.svg)|testa il datapath|
+|![Tester FSMD](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20FSMD/badge.svg)|testa la FSMD|
 
 ## Descrizione
 
@@ -44,15 +45,16 @@ e diverse workflow per eseguire gli script Python blif_tester.py e fsm_optimizer
 
     > Il workflow che esegue fsm_optimizer.py scarica il repository, installa Python e SIS, esegue lo script e infine carica
     > come artifact il file di log e il file blif ottimizzato della fsm
-* **comparatori**: contiene i comparatori e output corretti
+* **comparatori**: contiene i comparatori e output attesi dai test
 * **datapath**: contiene il file del datapath specifico dell'elaborato
-* **fsm**: contiene il file della macchina a stati finiti specifica dell'elaborato
-* **maggiore**: contiene circuiti che verificano se il primo ingresso e' maggiore del secondo e i relativi output corretti
+* **fsm**: contiene il file della macchina a stati finiti specifica dell'elaborato e la fsm ottimizzata
+* **fsmd**: contiene il file della macchina a stati finiti specifica dell'elaborato
+* **maggiore**: contiene circuiti che verificano se il primo ingresso e' maggiore del secondo e i relativi output attesi dai test
 * **minoreuguale**: contiene circuiti che verificano se il primo ingresso e' minore uguale del secondo e i relativi output corretti
 * **multiplexer**: contiene multiplexer e output corretti
 * **porte_logiche** contiene le 7 porte logiche e output corretti
 * **registri** contiene registri e output corretti
-* **shiftersx**: contiene shifter che moltiplicano per due l'ingresso
+* **shiftersx**: contiene shifter che moltiplicano per due l'ingresso eseguendo uno shift a sinistra dei bit
 * **sommatori** contiene fulladder e output corretti
 * **sottrattori** contiene sottrattori e i file di output corretti
 
