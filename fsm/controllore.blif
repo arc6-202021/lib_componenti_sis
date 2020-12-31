@@ -7,7 +7,7 @@
 .i 6 #numero di segnali di ingresso
 .o 4 #numero di segnali di uscita
 .s 9 #numero di stati
-.p 30 #numero di transizioni
+.p 31 #numero di transizioni
 .r INSERIMENTO #stato di reset
 
 
