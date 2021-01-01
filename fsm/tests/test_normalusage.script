@@ -1,3 +1,6 @@
+# stato iniziale
+sim 0 0 0 0 0 0
+
 # inserisci bancomat
 sim 1 0 0 0 0 0
 
@@ -13,3 +16,5 @@ sim 1 0 0 0 0 0
 # CHECK_OK, puoi erogare denaro
 sim 0 0 0 0 0 1
 
+# prossima operazione si torna allo stato iniziale
+sim 0 0 0 0 0 0

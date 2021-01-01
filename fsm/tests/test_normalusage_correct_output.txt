@@ -1,28 +1,40 @@
-# bancomat inserito: CODICE1 (1110)
+# stato iniziale: S1 (00010)
 Network simulation:
 Outputs: 0 0 0 0
-Next state: 1110
+Next state: 00010
 
 
-# inserito pin 5: CODICE2 (0011)
+# bancomat inserito: S2 (00110)
 Network simulation:
 Outputs: 0 0 0 0
-Next state: 0011
+Next state: 00110
 
 
-# inserito pin 5: CODICE3 (1111)
+# inserito pin 5: S4 (01111)
 Network simulation:
 Outputs: 0 0 0 0
-Next state: 1111
+Next state: 01111
 
 
-# inserito pin 0: RICHIESTA (0101)
+# inserito pin 5: S6 (00101)
+Network simulation:
+Outputs: 0 0 0 0
+Next state: 00101
+
+
+# inserito pin 0: S8 (11001)
 Network simulation:
 Outputs: 0 0 0 1
-Next state: 0101
+Next state: 11001
 
 
-# CHECK_OK = 1, puoi erogare: EROGAZIONE (0100)
+# CHECK_OK = 1, puoi erogare: S17 (10001)
 Network simulation:
 Outputs: 0 1 0 0
-Next state: 0100
+Next state: 10001
+
+
+# si ritorna allo stato iniziale: S1 (00010)
+Network simulation:
+Outputs: 0 0 0 0
+Next state: 00010
