@@ -30,6 +30,7 @@ Test specifici dell'elaborato:
 |![Ottimizzatore FSM](https://github.com/arc6-202021/lib_componenti_sis/workflows/Ottimizzatore%20FSM/badge.svg)|ottimizza automaticamente la macchina a stati finiti|
 |![Tester datapath](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20datapath/badge.svg)|testa il datapath|
 |![Tester FSMD](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20FSMD/badge.svg)|testa la FSMD|
+|![Tester progetto completo](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20progetto%20completo/badge.svg)|testa i file finali del progetto|
 
 ## Descrizione
 
@@ -55,6 +56,7 @@ e diverse workflow per eseguire gli script Python blif_tester.py e fsm_optimizer
 * **porte_logiche** contiene le 7 porte logiche e output corretti
 * **registri** contiene registri e output corretti
 * **shiftersx**: contiene shifter che moltiplicano per due l'ingresso eseguendo uno shift a sinistra dei bit
+* **sis**: contiene tutti i file del progetto finito per l'elaborato
 * **sommatori** contiene fulladder e output corretti
 * **sottrattori** contiene sottrattori e i file di output corretti
 
