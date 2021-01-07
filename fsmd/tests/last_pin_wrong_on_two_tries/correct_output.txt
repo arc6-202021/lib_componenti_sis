@@ -1,0 +1,69 @@
+# Visualizza stato iniziale: S1 - INSERIMENTO - (0) 00010
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 000010
+
+
+
+# Inserito il bancomat: S2 - T1_CODICE1 - (0) 00110
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 000110
+
+
+# -- TENTATIVO 1: errato
+
+
+# Inserito numero pin 5: S4- T1_CODICE2 - (0) 01111
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 001111
+
+# Inserito numero pin 5: S6 - T1_CODICE3 - (0) 00101
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 000101
+
+# Inserito numero pin X (non 0): S7 - T2_CODICE1 - (0) 11101
+Network simulation:
+Outputs: 1 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 011101
+
+
+# -- TENTATIVO 2: errato
+
+
+# Inserito numero pin 5: S10 - T2_CODICE2 - (0) 10100
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 010100
+
+# Inserito numero pin 5: S12 - T2_CODICE3 - (0) 01100
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 001100
+
+# Inserito numero pin X (non 0): S13 - T3_CODICE1 - (0) 11011
+Network simulation:
+Outputs: 1 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 011011
+
+
+
+# -- TENTATIVO 3: corretto
+
+
+# Inserito numero pin 5: S15 - T3_CODICE2 - (0) 01101
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 001101
+
+# Inserito numero pin 5: S16 - T3_CODICE3 - (0) 11100
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 011100
+
+# Inserito numero pin 0: S8 - RICHIESTA - (1) 11001
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 111001
