@@ -5,6 +5,9 @@ per l'elaborato di architettura degli elaboratori.
 
 ![FSM](images/fsm.svg)
 
+> Immagine creata dal programma ```generate-stg``` [scaricabile da qui](https://github.com/bohzio/sis-tools),
+> modificato per salvare il grafico come documento svg (il programma esporta in png)
+
 Tabella degli stati della fsm ottimizzata:
 
 |nome abbreviato|nome completo              |codifica|

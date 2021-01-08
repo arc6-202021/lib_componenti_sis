@@ -10,6 +10,8 @@ Dove la fsm e' contenuta nella cartella [```fsm```](../fsm) e il datapath e' con
 > ```"error: network contains a cycle"```
 
 ![FSMD completa](images/project.svg)
+> Immagine della fsm creata dal programma ```generate-stg``` [scaricabile da qui](https://github.com/bohzio/sis-tools),
+> modificato per salvare il grafico come documento svg (il programma esporta in png)
 
 ## Requisiti
 
