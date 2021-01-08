@@ -16,316 +16,341 @@ CASH_DA_EROGARE1 CASH_DA_EROGARE0
 .default_input_drive 0.20 0.20 
 .default_output_load 1.00 
 .default_max_input_load 999.00 
-.latch    [3027] CHECK_DISPONIBILITA_IN re NIL 0
-.latch    [3655] LatchOut_v6 re NIL 0
-.latch    [3028] LatchOut_v7 re NIL 0
-.latch    [3024] LatchOut_v8 re NIL 0
-.latch    [3026] LatchOut_v9 re NIL 1
-.latch    [3023] LatchOut_v10 re NIL 0
-.names LatchOut_v10 [3343]
-0 1
-.names [3343] LatchOut_v7 [3344]
+.latch    [956] LatchOut_v6 re NIL 1
+.latch    [954] LatchOut_v7 re NIL 1
+.latch    [955] LatchOut_v8 re NIL 0
+.latch    [1598] LatchOut_v9 re NIL 0
+.latch    [957] LatchOut_v10 re NIL 1
+.latch    [1555] [232] re NIL 0
+.names LatchOut_v7 BANCOMAT_INSERITO [1700]
 0- 1
 -0 1
-.names [3344] LatchOut_v7 [3343] [3739]
+.names LatchOut_v9 [1285]
+0 1
+.names [1285] LatchOut_v8 [1287]
+0- 1
+-0 1
+.names LatchOut_v6 [1284]
+0 1
+.names LatchOut_v10 [1280]
+0 1
+.names LatchOut_v8 [1280] LatchOut_v7 [1860]
+0-- 1
+-0- 1
+--0 1
+.names LatchOut_v10 LatchOut_v8 [1678]
+0- 1
+-0 1
+.names [1285] [1678] [1862]
+0- 1
+-0 1
+.names [1284] [1860] [1862] [1943]
+0-- 1
+-0- 1
+--0 1
+.names [1700] [1285] LatchOut_v6 [1287] [1284] [1943] [1291]
+111--- 1
+---111 1
+.names [1291] [1920]
+0 1
+.names LatchOut_v7 [1279]
+0 1
+.names LatchOut_v8 [1281]
+0 1
+.names [1280] [1281] [1282]
+0- 1
+-0 1
+.names [1920] [1279] [1282] [1939]
 0-- 1
 -00 1
-.names [3739] [3740]
+.names [1939] [956]
+1 1
+.names CODICE3 CODICE1 [347]
+00 1
+.names [347] LatchOut_v7 CODICE0 [1295]
+0-- 1
+-0- 1
+--0 1
+.names CODICE2 [1296]
 0 1
-.names CODICE3 CODICE1 [3336]
+.names LatchOut_v8 LatchOut_v9 [1297]
+0- 1
+-0 1
+.names LatchOut_v10 LatchOut_v8 LatchOut_v9 [1298]
+0-- 1
+-00 1
+.names [1298] LatchOut_v7 [1279] [1282] [1218]
+0-0- 1
+-00- 1
+0--0 1
+-0-0 1
+.names CODICE3 CODICE1 [1292]
 1- 1
 -1 1
-.names [3336] CODICE2 CODICE0 [3340]
+.names [1292] CODICE2 CODICE0 [1301]
 1-- 1
 -1- 1
 --1 1
-.names [3340] LatchOut_v8 [3341]
-1- 1
--0 1
-.names LatchOut_v9 [3346]
+.names [1301] [1683]
 0 1
-.names LatchOut_v6 [3345]
+.names [1218] [1297] [1683] [1553]
+0-- 1
+-0- 1
+--0 1
+.names [1298] [1673]
 0 1
-.names [3346] LatchOut_v7 [3345] [3347]
+.names [1297] [1553] [1673] [1304]
+0-- 1
+-0- 1
+--0 1
+.names [1295] LatchOut_v9 [1296] [1304] [856]
+0-0- 1
+-00- 1
+0--0 1
+-0-0 1
+.names [856] [1943] [885]
+00 1
+.names [1678] [1279] [1287] [1702]
 0-- 1
 -00 1
-.names CASH_RICHIESTO7 CASH_DISPONIBILE9 [3781]
-01 1
-10 1
-.names [3781] CHECK_DISPONIBILITA_IN [3357]
-0- 1
--0 1
-.names CASH_RICHIESTO6 CASH_DISPONIBILE8 [3783]
-01 1
-10 1
-.names [3783] CHECK_DISPONIBILITA_IN [3360]
-0- 1
--0 1
-.names CASH_RICHIESTO0 [3376]
-0 1
-.names CASH_DISPONIBILE0 [3376] CASH_DISPONIBILE2 [3188]
+.names [885] [1943] [1702] [1200]
 00- 1
 0-0 1
-.names [3188] [3960]
-0 1
-.names CHECK_DISPONIBILITA_IN CASH_DISPONIBILE1 [3960] [3835]
+.names [1200] LatchOut_v6 LatchOut_v8 [1941]
 0-- 1
 -00 1
-.names [3357] [3360] [3835] [3382]
+.names LatchOut_v6 [1941] [1306]
+1- 1
+-1 1
+.names [1306] CODICE2 [1307]
+0- 1
+-0 1
+.names [1678] [1681]
+0 1
+.names [1681] [1304] LatchOut_v10 [1306] [1308]
+00-- 1
+--00 1
+.names [1308] LatchOut_v10 LatchOut_v6 [17]
+00- 1
+0-0 1
+.names LatchOut_v6 [1297] [1019]
+00 1
+.names CASH_RICHIESTO3 CASH_DISPONIBILE5 [1736]
+01 1
+10 1
+.names [1736] [232] [1330]
+0- 1
+-0 1
+.names CASH_RICHIESTO2 CASH_DISPONIBILE4 [1738]
+01 1
+10 1
+.names [1738] [232] [1333]
+0- 1
+-0 1
+.names CASH_RICHIESTO0 [1337]
+0 1
+.names CASH_DISPONIBILE0 [1337] CASH_DISPONIBILE2 [1060]
+00- 1
+0-0 1
+.names [1060] [1903]
+0 1
+.names [232] CASH_DISPONIBILE1 [1903] [1778]
+0-- 1
+-00 1
+.names [1330] [1333] [1778] [1343]
 0-- 1
 -0- 1
 --0 1
-.names CASH_RICHIESTO9 CASH_DISPONIBILE11 [3777]
+.names CASH_RICHIESTO5 CASH_DISPONIBILE7 [1732]
 01 1
 10 1
-.names [3777] CHECK_DISPONIBILITA_IN [3351]
+.names [1732] [232] [1324]
 0- 1
 -0 1
-.names CASH_RICHIESTO8 CASH_DISPONIBILE10 [3779]
+.names CASH_RICHIESTO4 CASH_DISPONIBILE6 [1734]
 01 1
 10 1
-.names [3779] CHECK_DISPONIBILITA_IN [3354]
+.names [1734] [232] [1327]
 0- 1
 -0 1
-.names [3351] [3354] [3383]
+.names [1324] [1327] [1344]
 0- 1
 -0 1
-.names CASH_RICHIESTO3 CASH_DISPONIBILE5 [3771]
+.names CASH_RICHIESTO8 CASH_DISPONIBILE10 [1726]
 01 1
 10 1
-.names [3771] CHECK_DISPONIBILITA_IN [3369]
+.names [1726] [232] [1315]
 0- 1
 -0 1
-.names CASH_RICHIESTO2 CASH_DISPONIBILE4 [3773]
+.names CASH_RICHIESTO7 CASH_DISPONIBILE9 [1728]
 01 1
 10 1
-.names [3773] CHECK_DISPONIBILITA_IN [3372]
+.names [1728] [232] [1318]
 0- 1
 -0 1
-.names CASH_RICHIESTO1 CASH_DISPONIBILE3 [3775]
+.names CASH_RICHIESTO6 CASH_DISPONIBILE8 [1730]
 01 1
 10 1
-.names [3775] CHECK_DISPONIBILITA_IN [3375]
+.names [1730] [232] [1321]
 0- 1
 -0 1
-.names [3369] [3372] [3375] [3386]
+.names [1315] [1318] [1321] [1347]
 0-- 1
 -0- 1
 --0 1
-.names CASH_RICHIESTO5 CASH_DISPONIBILE7 [3767]
+.names CASH_RICHIESTO1 CASH_DISPONIBILE3 [1722]
 01 1
 10 1
-.names [3767] CHECK_DISPONIBILITA_IN [3363]
+.names [1722] [232] [1336]
 0- 1
 -0 1
-.names CASH_RICHIESTO4 CASH_DISPONIBILE6 [3769]
+.names CASH_RICHIESTO9 CASH_DISPONIBILE11 [1724]
 01 1
 10 1
-.names [3769] CHECK_DISPONIBILITA_IN [3366]
+.names [1724] [232] [1312]
 0- 1
 -0 1
-.names [3363] [3366] [3387]
+.names [1336] [1312] [1348]
 0- 1
 -0 1
-.names [3382] [3383] [3386] [3387] [2921]
+.names [1343] [1344] [1347] [1348] [852]
 0000 1
-.names [3351] [3689]
+.names [1312] [1628]
 0 1
-.names [3357] [3697]
+.names [1318] [1636]
 0 1
-.names [3363] [3669]
+.names [1324] [1644]
 0 1
-.names [3369] [3677]
+.names [1330] [1652]
 0 1
-.names CASH_DISPONIBILE2 [3377]
+.names CASH_DISPONIBILE2 [1338]
 0 1
-.names [3375] [3377] CASH_RICHIESTO0 [3871]
+.names [1336] [1338] CASH_RICHIESTO0 [1814]
 0-- 1
 -0- 1
 --0 1
-.names CASH_RICHIESTO1 [3373]
+.names CASH_RICHIESTO1 [1334]
 0 1
-.names [3871] [3373] [3375] [3765]
+.names [1814] [1334] [1336] [1720]
 0-- 1
 -00 1
-.names [3372] [3683]
+.names [1333] [1658]
 0 1
-.names [3372] [3765] CASH_RICHIESTO2 [3683] [2935]
+.names [1333] [1720] CASH_RICHIESTO2 [1658] [863]
 0-0- 1
 -00- 1
 0--0 1
 -0-0 1
-.names CASH_RICHIESTO3 [3367]
+.names CASH_RICHIESTO3 [1328]
 0 1
-.names [3677] [2935] [3367] [3369] [3761]
+.names [1652] [863] [1328] [1330] [1716]
 00-- 1
 --00 1
-.names [3366] [3675]
+.names [1327] [1650]
 0 1
-.names [3366] [3761] CASH_RICHIESTO4 [3675] [2933]
+.names [1327] [1716] CASH_RICHIESTO4 [1650] [861]
 0-0- 1
 -00- 1
 0--0 1
 -0-0 1
-.names CASH_RICHIESTO5 [3361]
+.names CASH_RICHIESTO5 [1322]
 0 1
-.names [3669] [2933] [3361] [3363] [3757]
+.names [1644] [861] [1322] [1324] [1712]
 00-- 1
 --00 1
-.names [3360] [3703]
+.names [1321] [1642]
 0 1
-.names [3360] [3757] CASH_RICHIESTO6 [3703] [2931]
+.names [1321] [1712] CASH_RICHIESTO6 [1642] [859]
 0-0- 1
 -00- 1
 0--0 1
 -0-0 1
-.names CASH_RICHIESTO7 [3355]
+.names CASH_RICHIESTO7 [1316]
 0 1
-.names [3697] [2931] [3355] [3357] [3753]
+.names [1636] [859] [1316] [1318] [1708]
 00-- 1
 --00 1
-.names [3354] [3695]
+.names [1315] [1634]
 0 1
-.names [3354] [3753] CASH_RICHIESTO8 [3695] [2929]
+.names [1315] [1708] CASH_RICHIESTO8 [1634] [857]
 0-0- 1
 -00- 1
 0--0 1
 -0-0 1
-.names CASH_RICHIESTO9 [3349]
+.names CASH_RICHIESTO9 [1310]
 0 1
-.names [3689] [2929] [3349] [3351] [3379]
+.names [1628] [857] [1310] [1312] [1340]
 00-- 1
 --00 1
 .names CASH_DISPONIBILE15 CASH_DISPONIBILE14 CASH_DISPONIBILE13 \
-CASH_DISPONIBILE12 [2437]
+CASH_DISPONIBILE12 [368]
 0000 1
-.names CHECK_DISPONIBILITA_IN [3348]
+.names [232] [1309]
 0 1
-.names [2921] [3379] [2437] [3348] [3391]
+.names [852] [1340] [368] [1309] [1508]
 00-- 1
 --00 1
-.names [3347] LatchOut_v8 [3391] [2967]
-000 1
-.names LatchOut_v10 LatchOut_v6 [3393]
-0- 1
--0 1
-.names LatchOut_v8 [3335]
-0 1
-.names LatchOut_v9 LatchOut_v7 [3335] [3743]
-0-- 1
--00 1
-.names [2967] [3393] [3743] [3134]
-00- 1
-0-0 1
-.names [3134] [3345] [3346] [3976]
-0-- 1
--00 1
-.names [3976] [3662]
-0 1
-.names [3347] [3393] [3395]
-1- 1
--1 1
-.names [3740] [3341] [3662] [3395] [3974]
-00-- 1
---00 1
-.names [3974] [3027]
-1 1
-.names [3347] [3975]
-0 1
-.names [3975] [3655]
-1 1
-.names [3976] [3028]
-1 1
-.names LatchOut_v9 [3345] [3341] [2927]
-00- 1
-0-0 1
-.names LatchOut_v10 [2927] LatchOut_v7 [3393] [3978]
-00-- 1
---00 1
-.names [3978] LatchOut_v6 LatchOut_v8 [2958]
-000 1
-.names [3335] [3343] [3106]
-00 1
-.names [2958] [3340] [3106] [2920]
-00- 1
-0-0 1
-.names [3978] [3664]
-0 1
-.names LatchOut_v7 [2920] [3664] [3347] REINSERIRE_CODICE
-00-- 1
---00 1
-.names REINSERIRE_CODICE LatchOut_v10 [3797]
-0- 1
--0 1
-.names [3344] LatchOut_v8 LatchOut_v6 LatchOut_v9 [2926]
-0-0- 1
--00- 1
-0--0 1
--0-0 1
-.names [2926] [3336] [3115]
-00 1
-.names [3115] CODICE2 CODICE0 [3793]
-0-- 1
--0- 1
---0 1
-.names [3335] BANCOMAT_INSERITO [3343] LatchOut_v9 [3795]
+.names [1019] [1280] [1508] LatchOut_v7 [1483]
 0--- 1
 -0-- 1
 --0- 1
 ---0 1
-.names [3797] [3793] [3795] [3977]
-0-- 1
--0- 1
---0 1
-.names [3977] [3024]
-1 1
-.names [3978] [3026]
-1 1
-.names LatchOut_v8 [3395] [2948]
-00 1
-.names [2948] LatchOut_v10 LatchOut_v9 [3059]
-00- 1
-0-0 1
-.names [3662] LatchOut_v6 LatchOut_v7 [3785]
-1-- 1
--1- 1
---1 1
-.names [3343] REINSERIRE_CODICE [3974] [3787]
-0-- 1
--00 1
-.names [3059] [3785] [3787] [3979]
-0-- 1
--0- 1
---0 1
-.names [3979] [3023]
-1 1
-.names [3391] [3558]
-0 1
-.names [3395] [3558] LatchOut_v8 ABILITAZIONE_EROGAZIONE
-000 1
-.names [3341] LatchOut_v6 [3408]
+.names [1483] [1280] [1355]
 0- 1
 -0 1
-.names [3344] [3408] BLOCCO_BANCOMAT
-00 1
-.names [3391] CASH_RICHIESTO9 CASH_DA_EROGARE9
+.names [1295] [1307] [17] [1355] [1356]
+00-- 1
+--00 1
+.names [1356] [1285] LatchOut_v6 [1000]
+00- 1
+0-0 1
+.names [1000] [1304] [1553] [1940]
+0-- 1
+-0- 1
+--0 1
+.names [1940] [954]
+1 1
+.names [1941] [955]
+1 1
+.names [17] [1598]
+1 1
+.names [1943] [957]
+1 1
+.names [1553] [1944]
+0 1
+.names [1944] [1555]
+1 1
+.names [1304] REINSERIRE_CODICE
+0 1
+.names [1483] ABILITAZIONE_EROGAZIONE
+0 1
+.names LatchOut_v8 [1280] [1284] [1740]
+0-- 1
+-0- 1
+--0 1
+.names [1740] [1683] [1282] [1694]
+0-- 1
+-00 1
+.names LatchOut_v7 [1694] BLOCCO_BANCOMAT
+01 1
+.names [1508] CASH_RICHIESTO9 CASH_DA_EROGARE9
 11 1
-.names [3391] CASH_RICHIESTO8 CASH_DA_EROGARE8
+.names [1508] CASH_RICHIESTO8 CASH_DA_EROGARE8
 11 1
-.names [3391] CASH_RICHIESTO7 CASH_DA_EROGARE7
+.names [1508] CASH_RICHIESTO7 CASH_DA_EROGARE7
 11 1
-.names [3391] CASH_RICHIESTO6 CASH_DA_EROGARE6
+.names [1508] CASH_RICHIESTO6 CASH_DA_EROGARE6
 11 1
-.names [3391] CASH_RICHIESTO5 CASH_DA_EROGARE5
+.names [1508] CASH_RICHIESTO5 CASH_DA_EROGARE5
 11 1
-.names [3391] CASH_RICHIESTO4 CASH_DA_EROGARE4
+.names [1508] CASH_RICHIESTO4 CASH_DA_EROGARE4
 11 1
-.names [3391] CASH_RICHIESTO3 CASH_DA_EROGARE3
+.names [1508] CASH_RICHIESTO3 CASH_DA_EROGARE3
 11 1
-.names [3391] CASH_RICHIESTO2 CASH_DA_EROGARE2
+.names [1508] CASH_RICHIESTO2 CASH_DA_EROGARE2
 11 1
-.names [3391] CASH_RICHIESTO1 CASH_DA_EROGARE1
+.names [1508] CASH_RICHIESTO1 CASH_DA_EROGARE1
 11 1
-.names [3391] CASH_RICHIESTO0 CASH_DA_EROGARE0
+.names [1508] CASH_RICHIESTO0 CASH_DA_EROGARE0
 11 1
 .end

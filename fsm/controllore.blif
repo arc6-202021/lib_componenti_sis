@@ -92,7 +92,7 @@
 ------ BLOCCO BLOCCO 0010
 
 #parte relativa al controllo della quantità di denaro
------0 RICHIESTA RICHIESTA 0001 
+-----0 RICHIESTA INSERIMENTO 0000 
 -----1 RICHIESTA EROGAZIONE 0100 
 
 
