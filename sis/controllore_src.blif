@@ -12,7 +12,7 @@
 
 
 #tabella delle transizioni
-#STG-START
+
 #parte relativa all'inserimento del bancomat
 0----- INSERIMENTO INSERIMENTO 0000
 1----- INSERIMENTO T1_CODICE1 0000
@@ -92,13 +92,13 @@
 ------ BLOCCO BLOCCO 0010
 
 #parte relativa al controllo della quantità di denaro
------0 RICHIESTA RICHIESTA 0001 
+-----0 RICHIESTA INSERIMENTO 0000 
 -----1 RICHIESTA EROGAZIONE 0100 
 
 
 #transizione dal'ultimo stato allo stato iniziale
 ------ EROGAZIONE INSERIMENTO 0000 
-#STG-STOP
+
 
 .end_kiss
 
