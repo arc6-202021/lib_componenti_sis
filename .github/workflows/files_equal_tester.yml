@@ -1,0 +1,42 @@
+on:
+  push
+
+name: Tester uguaglianza file
+
+jobs:
+  build:
+    name: Tester uguaglianza file
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Check comparatore16
+        run: echo "1" && diff sis/comparatore16.blif comparatori/comparatore16.blif
+      - name: Check controllore_src.blif
+        run: echo "2" && diff sis/controllore_src.blif fsm/controllore.blif
+      - name: Check controllore.blif
+        run: echo "3" && diff sis/controllore.blif fsm/controllore_ottimizzato.blif
+      - name: Check datapath.blif
+        run: echo "4" && diff sis/datapath.blif datapath/datapath.blif
+      - name: Check FSMD_src.blif
+        run: echo "5" && diff sis/FSMD_src.blif fsmd/FSMD.blif
+      - name: Check FSMD.blif
+        run: echo "6" && diff sis/FSMD.blif fsmd/FSMD_ottimizzato.blif
+      - name: Check maggiore16.blif
+        run: echo "7" && diff sis/maggiore16.blif maggiore/maggiore16.blif
+      - name: Check minoreuguale16.blif
+        run: echo "8" && diff sis/minoreuguale16.blif minoreuguale/minoreuguale16.blif
+      - name: Check mux2i1b.blif
+        run: echo "9" && diff sis/mux2i1b.blif multiplexer/mux2i1b.blif
+      - name: Check mux2i10b.blif
+        run: echo "10" && diff sis/mux2i10b.blif multiplexer/mux2i10b.blif
+      - name: Check mux2i16b.blif
+        run: echo "11" && diff sis/mux2i16b.blif multiplexer/mux2i16b.blif
+      - name: Check not.blif
+        run: echo "12" && diff sis/not.blif porte_logiche/not.blif
+      - name: Check shiftersx16b.blif
+        run: echo "13" && diff sis/shiftersx16b.blif shiftersx/shiftersx16b.blif
+      - name: Check xnor.blif
+        run: echo "14" && diff sis/xnor.blif porte_logiche/xnor.blif
+      - name: Check xor.blif
+        run: echo "15" && diff sis/xor.blif porte_logiche/xor.blif
