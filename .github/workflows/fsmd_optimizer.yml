@@ -1,0 +1,43 @@
+on:
+  push
+
+name: Ottimizzatore FSMD
+
+jobs:
+  build:
+    name: Ottimizzatore FSMD
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install Python
+        uses: actions/setup-python@v2.2.1
+        with:
+          python-version: 3.8.5
+      - name: Install SIS
+        run: wget https://github.com/JackHack96/logic-synthesis/releases/download/1.3.6/sis_1.3.6-1_amd64.deb && sudo dpkg -i sis_1.3.6-1_amd64.deb
+      - name: Check Python and SIS version
+        run: echo -e "\n[PYTHON VERSION]\n" && python3 --version && echo -e "\n\n[SIS VERSION]\n" && (sis -v || true)
+      - name: Execute fsmd/tests/setup.sh
+        run: ./fsmd/tests/setup.sh
+      - name: Execute fsmd_optimizer
+        id: optimize
+        run: export SAVEOPT=$(python3 fsmd_optimizer.py) && echo "::set-output name=SAVEOPT::$SAVEOPT"
+      - name: Archive optimized blif
+        if: steps.optimize.outputs.SAVEOPT == 1
+        uses: actions/upload-artifact@v2
+        with:
+          name: FSMD_ottimizzato.blif
+          path: fsmd/FSMD_ottimizzato.blif
+      - name: Archive optimized blif stats
+        if: steps.optimize.outputs.SAVEOPT == 1
+        uses: actions/upload-artifact@v2
+        with:
+          name: opt_stats.csv
+          path: fsmd/opt_stats.csv
+      - name: Archive log
+        if: steps.optimize.outputs.SAVEOPT == 1
+        uses: actions/upload-artifact@v2
+        with:
+          name: fsmd_optimizer_log.txt
+          path: fsmd_optimizer_log.txt

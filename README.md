@@ -30,7 +30,9 @@ Test specifici dell'elaborato:
 |![Ottimizzatore FSM](https://github.com/arc6-202021/lib_componenti_sis/workflows/Ottimizzatore%20FSM/badge.svg)|ottimizza automaticamente la macchina a stati finiti|
 |![Tester datapath](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20datapath/badge.svg)|testa il datapath|
 |![Tester FSMD](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20FSMD/badge.svg)|testa la FSMD|
+|![Ottimizzatore FSMD](https://github.com/arc6-202021/lib_componenti_sis/workflows/Ottimizzatore%20FSMD/badge.svg)|ottimizza automaticamente la FSMD|
 |![Tester progetto completo](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20progetto%20completo/badge.svg)|testa i file finali del progetto|
+|![Tester uguaglianza file](https://github.com/arc6-202021/lib_componenti_sis/workflows/Tester%20uguaglianza%20file/badge.svg)|si assicura che i file finali del progetto sono uguali a quelli delle altre sottocartelle|
 
 ## Descrizione
 
