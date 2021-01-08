@@ -1,69 +1,69 @@
-# Visualizza stato iniziale: S1 - INSERIMENTO - (0) 00010
+# Visualizza stato iniziale: S1 - INSERIMENTO - 11001 (0)
 Network simulation:
 Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
-Next state: 000010
+Next state: 110010
 
 
 
-# Inserito il bancomat: S2 - T1_CODICE1 - (0) 00110
+# Inserito il bancomat: S2 - T1_CODICE1 - 01001 (0)
 Network simulation:
 Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
-Next state: 000110
+Next state: 010010
 
 
 # -- TENTATIVO 1: errato
 
 
-# Inserito numero pin 5: S4- T1_CODICE2 - (0) 01111
+# Inserito numero pin 5: S4 - T1_CODICE2 - 11111 (0)
 Network simulation:
 Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
-Next state: 001111
+Next state: 111110
 
-# Inserito numero pin 5: S6 - T1_CODICE3 - (0) 00101
+# Inserito numero pin 5: S6 - T1_CODICE3 - 01101 (0)
 Network simulation:
 Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
-Next state: 000101
+Next state: 011010
 
-# Inserito numero pin X (non 0): S7 - T2_CODICE1 - (0) 11101
+# Inserito numero pin X (non 0): S7 - T2_CODICE1 - 01010 (0)
 Network simulation:
 Outputs: 1 0 0 0 0 0 0 0 0 0 0 0 0
-Next state: 011101
+Next state: 010100
 
 
 # -- TENTATIVO 2: errato
 
 
-# Inserito numero pin 5: S10 - T2_CODICE2 - (0) 10100
+# Inserito numero pin 5: S10 - T2_CODICE2 - 11110 (0)
 Network simulation:
 Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
-Next state: 010100
+Next state: 111100
 
-# Inserito numero pin 5: S12 - T2_CODICE3 - (0) 01100
+# Inserito numero pin 5: S12 - T2_CODICE3 - 01011 (0)
 Network simulation:
 Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
-Next state: 001100
+Next state: 010110
 
-# Inserito numero pin X (non 0): S13 - T3_CODICE1 - (0) 11011
+# Inserito numero pin X (non 0): S13 - T3_CODICE1 - 01100 (0)
 Network simulation:
 Outputs: 1 0 0 0 0 0 0 0 0 0 0 0 0
-Next state: 011011
+Next state: 011000
 
 
 
 # -- TENTATIVO 3: corretto
 
 
-# Inserito numero pin 5: S15 - T3_CODICE2 - (0) 01101
+# Inserito numero pin 5: S15 - T3_CODICE2 - 01111 (0)
 Network simulation:
 Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
-Next state: 001101
+Next state: 011110
 
-# Inserito numero pin 5: S16 - T3_CODICE3 - (0) 11100
+# Inserito numero pin 5: S16 - T3_CODICE3 - 00010 (0)
 Network simulation:
 Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
-Next state: 011100
+Next state: 000100
 
-# Inserito numero pin 0: S8 - RICHIESTA - (1) 11001
+# Inserito numero pin 0: S8 - RICHIESTA - 01110 (1)
 Network simulation:
 Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
-Next state: 111001
+Next state: 011101

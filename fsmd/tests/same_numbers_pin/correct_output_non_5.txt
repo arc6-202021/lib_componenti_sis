@@ -1,59 +1,59 @@
-# Visualizza stato iniziale: S1 - INSERIMENTO - (0) 00010
+# Visualizza stato iniziale: S1 - INSERIMENTO - 11001 (0)
 Network simulation:
 Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
-Next state: 000010
+Next state: 110010
 
-# Inserito il bancomat: S2 - T1_CODICE1 - (0) 00110
+# Inserito il bancomat: S2 - T1_CODICE1 - 01001 (0)
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 010010
+
+# Inserito numero pin X: S3 - T1_CODICE1_ERRORE - 10111 (0)
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 101110
+
+# Inserito numero pin X: S5 - T1_CODICE2_ERRORE - 00101 (0)
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 001010
+
+# Inserito numero pin X: S7 - T2_CODICE1 - 01010 (0)
+Network simulation:
+Outputs: 1 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 010100
+
+# Inserito numero pin X: S9 - T2_CODICE1_ERRORE - 10110 (0)
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 101100
+
+# Inserito numero pin X: S11 - T2_CODICE2_ERRORE - 00011 (0)
 Network simulation:
 Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
 Next state: 000110
 
-# Inserito numero pin X: S3 - T1_CODICE1_ERRORE - (0) 01011
-Network simulation:
-Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
-Next state: 001011
-
-# Inserito numero pin X: S3 - T1_CODICE2_ERRORE - (0) 00001
-Network simulation:
-Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
-Next state: 000001
-
-# Inserito numero pin X: S7 - T2_CODICE1 - (0) 11101
+# Inserito numero pin X: S13 - T3_CODICE1 - 01100 (0)
 Network simulation:
 Outputs: 1 0 0 0 0 0 0 0 0 0 0 0 0
-Next state: 011101
-
-# Inserito numero pin X: S9 - T2_CODICE1_ERRORE (0) 10000
-Network simulation:
-Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
-Next state: 010000
-
-# Inserito numero pin X: S11 - T2_CODICE2_ERRORE - (0) 01000
-Network simulation:
-Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
-Next state: 001000
-
-# Inserito numero pin X: S13 - T3_CODICE1 - (0) 11011
-Network simulation:
-Outputs: 1 0 0 0 0 0 0 0 0 0 0 0 0
-Next state: 011011
-
-# Inserito numero pin X: S14 - T3_CODICE1_ERRORE - (0) 01001
-Network simulation:
-Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
-Next state: 001001
-
-# Inserito numero pin X: S0 - T3_CODICE2_ERRORE - (0) 11000
-Network simulation:
-Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
 Next state: 011000
 
-# Bancomat bloccato: S0 - BLOCCO - (0) 11000
+# Inserito numero pin X: S14 - T3_CODICE1_ERRORE - 00111 (0)
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 001110
+
+# Inserito numero pin X: S0 - T3_CODICE2_ERRORE - 00110 (0)
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 001100
+
+# Bancomat bloccato: S0 - BLOCCO - 00110 (0)
 Network simulation:
 Outputs: 0 0 1 0 0 0 0 0 0 0 0 0 0
-Next state: 011000
+Next state: 001100
 
-# Il bancomat rimane bloccato: S0 - BLOCCO - (0) 11000
+# Il bancomat rimane bloccato: S0 - BLOCCO - 00110 (0)
 Network simulation:
 Outputs: 0 0 1 0 0 0 0 0 0 0 0 0 0
-Next state: 011000
+Next state: 001100
