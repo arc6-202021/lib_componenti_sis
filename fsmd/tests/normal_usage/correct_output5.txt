@@ -1,0 +1,29 @@
+# inserisco bancomat
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 010010
+
+# inserisco 5
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 111110
+
+# inserisco 5
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 011010
+
+# inserisco 0
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 011101
+
+# la richiesta ha avuto successo
+Network simulation:
+Outputs: 0 1 0 0 0 0 0 0 1 1 0 0 1
+Next state: 100010
+
+# Torna allo stato iniziale: S1 - INSERIMENTO - 11001 (0)
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 110010

@@ -1,0 +1,24 @@
+# inserisco bancomat
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 010010
+
+# inserisco 5
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 111110
+
+# inserisco 5
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 011010
+
+# inserisco 0
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 011101
+
+# la banca non ha abbastanza soldi, torna allo stato iniziale
+Network simulation:
+Outputs: 0 0 0 0 0 0 0 0 0 0 0 0 0
+Next state: 110010
