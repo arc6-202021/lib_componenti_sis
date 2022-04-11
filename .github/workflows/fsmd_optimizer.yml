@@ -25,19 +25,19 @@ jobs:
         run: export SAVEOPT=$(python3 fsmd_optimizer.py) && echo "::set-output name=SAVEOPT::$SAVEOPT"
       - name: Archive optimized blif
         if: steps.optimize.outputs.SAVEOPT == 1
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: FSMD_ottimizzato.blif
           path: fsmd/FSMD_ottimizzato.blif
       - name: Archive optimized blif stats
         if: steps.optimize.outputs.SAVEOPT == 1
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: opt_stats.csv
           path: fsmd/opt_stats.csv
       - name: Archive log
         if: steps.optimize.outputs.SAVEOPT == 1
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: fsmd_optimizer_log.txt
           path: fsmd_optimizer_log.txt
