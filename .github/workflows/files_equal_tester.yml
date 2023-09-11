@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Check comparatore16
         run: echo "1" && diff sis/comparatore16.blif comparatori/comparatore16.blif
       - name: Check controllore_src.blif
